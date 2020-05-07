@@ -3,13 +3,23 @@
 
 /** Ionic CSS Variables **/
 :root {
+
+  --ion-background-color: var(--ion-color-primary);
+  --ion-text-color: #fff;
+ 
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
+  // --ion-color-primary: #3880ff;
+  // --ion-color-primary-rgb: 56, 128, 255;
+  // --ion-color-primary-contrast: #ffffff;
+  // --ion-color-primary-contrast-rgb: 255, 255, 255;
+  // --ion-color-primary-shade: #3171e0;
+  // --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary: #69bb7b;
+  --ion-color-primary-rgb: 105,187,123;
   --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #5ca56c;
+  --ion-color-primary-tint: #78c288;
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
@@ -75,9 +85,17 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+  
+  --ion-color-lightGreen: #69bb7b;
+  --ion-color-lightGreen-rgb: 105,187,123;
+  --ion-color-lightGreen-contrast: #ffffff;
+  --ion-color-lightGreen-contrast-rgb: 255,255,255;
+  --ion-color-lightGreen-shade: #5ca56c;
+  --ion-color-lightGreen-tint: #78c288;
+
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: success) {
   /*
    * Dark Colors
    * -------------------------------------------
@@ -146,6 +164,14 @@
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+
+  --ion-color-lightGreen: #69bb7b;
+  --ion-color-lightGreen-rgb: 105,187,123;
+  --ion-color-lightGreen-contrast: #ffffff;
+  --ion-color-lightGreen-contrast-rgb: 255,255,255;
+  --ion-color-lightGreen-shade: #5ca56c;
+  --ion-color-lightGreen-tint: #78c288;
+
   }
 
   /*
@@ -225,5 +251,19 @@
     --ion-toolbar-background: #1f1f1f;
 
     --ion-tab-bar-background: #1f1f1f;
+  }
+
+}
+
+ion-tab-bar{
+  background-color: #f4f5f8;
+  ion-tab-button{
+    background-color: #f4f5f8;
+  }
+}
+
+ion-fab-button{
+  .button-native{
+    background-color: #69bb7b;
   }
 }
