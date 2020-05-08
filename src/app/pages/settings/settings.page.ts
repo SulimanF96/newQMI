@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-settings',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPage implements OnInit {
 
-  constructor() { }
+  private language = 'english';
+
+  constructor(private actionSheetController: ActionSheetController) { }
 
   ngOnInit() {
   }
 
+  async presentActionSheetForLanguage() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Languages',
+      buttons: [{
+        text: 'Arabic',
+        handler: () => {
+          this.language = 'arabic';
+        }
+      }, {
+        text: 'English',
+        handler: () => {
+          this.language = 'english';
+        }
+      }]
+    });
+    await actionSheet.present();
+  }
 }

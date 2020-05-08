@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>settings</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <h1 class="ion-text-center">Settings</h1>
+</ion-toolbar>
+
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row (click)="presentActionSheetForLanguage()">
+      <ion-card>
+        <ion-card-content>
+          <ion-text>Language</ion-text>
+          <ion-icon size="large" name="arrow-forward"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
