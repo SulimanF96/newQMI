@@ -2,9 +2,7 @@
   <h1 class="ion-text-center">Settings</h1>
 </ion-toolbar>
 
-
 <ion-content>
-
   <ion-grid>
     <ion-row (click)="presentActionSheetForLanguage()">
       <ion-card>
@@ -14,6 +12,13 @@
         </ion-card-content>
       </ion-card>
     </ion-row>
+    <ion-row (click)="presentActionSheetForChangingTheme()">
+      <ion-card>
+        <ion-card-content>
+          <ion-text>Theme</ion-text>
+          <div class="color" [style.background]="color"></div>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
   </ion-grid>
-
 </ion-content>
