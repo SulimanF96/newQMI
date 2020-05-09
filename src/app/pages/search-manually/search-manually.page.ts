@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-manually',
@@ -10,14 +11,14 @@ export class SearchManuallyPage implements OnInit {
 
   public medicationName: FormControl;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.medicationName = new FormControl('', Validators.required);
   }
 
   searchForMedication() {
-    console.log(this.medicationName.value);
+    this.router.navigate(['/tabs/medication-details', this.medicationName.value.trim()]);
   }
 
 }

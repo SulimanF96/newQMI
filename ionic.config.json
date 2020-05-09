@@ -1,5 +1,7 @@
 {
   "name": "QMI",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

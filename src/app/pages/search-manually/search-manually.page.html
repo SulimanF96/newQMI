@@ -16,7 +16,11 @@
     howCancelButton="focus"
   ></ion-searchbar>
 
-  <div (click)="searchForMedication()" class="search">
+  <div
+    [ngClass]="{'button-disabled': !medicationName.valid}"
+    (click)="medicationName.valid ? searchForMedication() : false"
+    class="search"
+  >
     <ion-icon size="large" name="search-outline"></ion-icon>
   </div>
 </ion-content>

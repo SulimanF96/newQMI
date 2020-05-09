@@ -17,7 +17,11 @@ const routes: Routes = [
       },
       {
         path: 'search-manually',
-        loadChildren: () => import('../pages/search-manually/search-manually.module').then( m => m.SearchManuallyPageModule)
+        loadChildren: () => import('../pages/search-manually/search-manually.module').then(m => m.SearchManuallyPageModule)
+      },
+      {
+        path: 'medication-details/:medicationName',
+        loadChildren: () => import('../pages/medication-details/medication-details.module').then(m => m.MedicationDetailsPageModule)
       },
       {
         path: '',
@@ -37,4 +41,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

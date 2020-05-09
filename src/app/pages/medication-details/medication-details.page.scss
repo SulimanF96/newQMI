@@ -1,0 +1,22 @@
+ion-toolbar {
+  --background: white;
+  color: var(--ion-color-primary-tint);
+}
+
+ion-content {
+  --background: white;
+}
+
+span.attribute-name {
+  color: #999999c7;
+}
+
+span.attribute-value {
+  color: var(--ion-color-primary);
+  display: block;
+  font-size: 33px;
+}
+
+ion-col.details {
+  padding-left: 38px;
+}
