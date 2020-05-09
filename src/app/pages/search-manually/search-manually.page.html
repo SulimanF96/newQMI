@@ -1,0 +1,22 @@
+<ion-toolbar>
+  <ion-buttons routerLink="/tabs/home" slot="start">
+    <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+  </ion-buttons>
+  <h1 class="ion-text-center">Search manually</h1>
+  <ion-buttons slot="end">
+    <ion-icon size="large" name="help-outline"></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-searchbar
+    [formControl]="medicationName"
+    mode="ios"
+    animated
+    howCancelButton="focus"
+  ></ion-searchbar>
+
+  <div (click)="searchForMedication()" class="search">
+    <ion-icon size="large" name="search-outline"></ion-icon>
+  </div>
+</ion-content>

@@ -1,0 +1,19 @@
+ion-button {
+  width: 26vw;
+}
+
+.search {
+  background-color: white;
+  color: var(--ion-color-primary);
+  width: 12vw;
+  height: 7vh;
+  border-radius: 61%;
+  position: relative;
+  float: right;
+  right: 34px;
+  bottom: 55px;
+}
+
+ion-icon {
+  padding: 8px;
+}

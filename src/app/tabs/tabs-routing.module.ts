@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
       },
       {
+        path: 'search-manually',
+        loadChildren: () => import('../pages/search-manually/search-manually.module').then( m => m.SearchManuallyPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
