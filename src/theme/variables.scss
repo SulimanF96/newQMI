@@ -149,6 +149,60 @@
 
     --ion-background-color: #222428;
     --ion-toolbar-background: #222428;
+
+    ion-card {
+      background-color: var(--ion-color-primary-tint);
+      color: white;
+    }
+
+    span.attribute-value {
+      color: white;
+    }
+
+    p {
+      color: white;
+    }
+
+    ion-tab-bar {
+      background-color: var(--ion-color-primary-tint);
+      ion-tab-button {
+        background-color: var(--ion-color-primary-tint);
+        color: white;
+      }
+
+      ion-tab-button.tab-selected {
+        color: #69bb7b;
+      }
+    }
+
+    ion-toolbar {
+      --background: var(--ion-color-primary);
+      color: white;
+    }
+
+    ion-content {
+      --background: var(--ion-color-primary);
+    }
+
+    ion-action-sheet {
+      .action-sheet-wrapper {
+        .action-sheet-container {
+          .action-sheet-group {
+            background-color: var(--ion-color-primary-tint);
+            .action-sheet-title {
+              font-size: 23px;
+              color: #999999;
+            }
+            button {
+              .action-sheet-button-inner {
+                font-size: 20px;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -337,6 +391,10 @@ ion-action-sheet {
 
 ion-searchbar {
   .searchbar-input-container {
+    input.searchbar-input {
+      letter-spacing: 2px;
+    }
+
     .searchbar-search-icon {
       display: none;
     }
@@ -368,4 +426,8 @@ ion-searchbar {
       }
     }
   }
+}
+
+ion-toolbar {
+  letter-spacing: 2px;
 }

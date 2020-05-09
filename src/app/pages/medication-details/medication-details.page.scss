@@ -9,12 +9,14 @@ ion-content {
 
 span.attribute-name {
   color: #999999c7;
+  letter-spacing: 2px;
 }
 
 span.attribute-value {
   color: var(--ion-color-primary);
   display: block;
   font-size: 33px;
+  letter-spacing: 2px;
 }
 
 ion-col.details {
@@ -35,4 +37,5 @@ ion-grid.basic-details {
 p {
   color: var(--ion-color-primary);
   font-size: 18px;
+  letter-spacing: 1px;
 }
