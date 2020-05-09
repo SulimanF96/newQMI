@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MedicationDetailsPage implements OnInit {
 
   private medicationName: string;
+  public selectedSegment = 'basic-details';
 
   constructor(private route: ActivatedRoute) { }
 
@@ -16,6 +17,10 @@ export class MedicationDetailsPage implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.medicationName = params.get('medicationName');
     });
+  }
+
+  segmentChanged(event) {
+    this.selectedSegment = event.detail.value;
   }
 
 }

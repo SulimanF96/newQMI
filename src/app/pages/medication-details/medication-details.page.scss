@@ -20,3 +20,19 @@ span.attribute-value {
 ion-col.details {
   padding-left: 38px;
 }
+
+.medication-image {
+  background: url("../../../assets/red-pill.png");
+  background-position: center;
+  background-size: cover;
+  background-color: transparent;
+}
+
+ion-grid.basic-details {
+  margin-top: 105px;
+}
+
+p {
+  color: var(--ion-color-primary);
+  font-size: 18px;
+}
