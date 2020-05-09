@@ -53,6 +53,27 @@ export class SettingsPage implements OnInit {
           this.themeService.changeTheme('green-theme');
           this.themeService.color.next('#69bb7bff');
         }
+      },
+      {
+        text: 'Red',
+        handler: () => {
+          this.themeService.changeTheme('red-theme');
+          this.themeService.color.next('#eb445a');
+        }
+      },
+      {
+        text: 'Blue',
+        handler: () => {
+          this.themeService.changeTheme('blue-theme');
+          this.themeService.color.next('#3880ff');
+        }
+      },
+      {
+        text: 'Dark',
+        handler: () => {
+          this.themeService.changeTheme('dark-theme');
+          this.themeService.color.next('#222428');
+        }
       }]
     });
     await actionSheet.present();
