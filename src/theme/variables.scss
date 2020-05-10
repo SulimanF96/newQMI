@@ -207,6 +207,14 @@
     ion-skeleton-text {
       --background-rgb: 215, 216, 218;
     }
+
+    h1 {
+      color: white;
+    }
+
+    ion-button {
+      --background: var(--ion-color-primary-tint);
+    }
   }
 }
 

@@ -40,6 +40,14 @@ p {
   letter-spacing: 1px;
 }
 
-.image-skeleton{
+.image-skeleton {
   height: 100%;
+}
+
+ion-grid.error-message-container {
+  text-align: center;
+}
+
+.error-message {
+  color: var(--ion-color-primary);
 }

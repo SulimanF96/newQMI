@@ -8,8 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MedicationDetailsPage implements OnInit {
 
-  private medicationName: string;
-  public data = false;
+  public medicationName: string;
+  public dataStatus = 'loading';
 
   constructor(private route: ActivatedRoute) { }
 
@@ -18,7 +18,12 @@ export class MedicationDetailsPage implements OnInit {
       this.medicationName = params.get('medicationName');
     });
     setTimeout(() => {
-      this.data = true;
+      this.dataStatus = 'not found';
     }, 1000);
+  }
+
+  searchAgain() {
+    // this.dataStatus = 'loading';
+    // searchForMedication();
   }
 }
