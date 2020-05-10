@@ -19,6 +19,7 @@ export class SearchManuallyPage implements OnInit {
 
   searchForMedication() {
     this.router.navigate(['/tabs/medication-details', this.medicationName.value.trim()]);
+    this.medicationName.setValue('');
   }
 
 }

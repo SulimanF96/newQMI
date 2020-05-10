@@ -9,250 +9,7 @@
 </ion-toolbar>
 
 <ion-content>
-  <!-- <ion-segment
-    mode="md"
-    (ionChange)="segmentChanged($event)"
-    scrollable
-    value="basic-details"
-  >
-    <ion-segment-button value="basic-details">
-      <ion-label>Basic Details</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="usage-contradictions">
-      <ion-label>Usage & Contradiction</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="dosage-sideEffect">
-      <ion-label>Dosage && Side Effects</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="storage-components">
-      <ion-label>Storage && Components</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Manufacturer-Details">
-      <ion-label>Manufacturer Details</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
-  <ion-grid class="basic-details" *ngIf="selectedSegment == 'basic-details'">
-    <ion-row>
-      <ion-col class="medication-image"> </ion-col>
-      <ion-col>
-        <ion-row>
-          <ion-col>
-            <span class="attribute-name">Brand name</span>
-            <span class="attribute-value">Tenormin</span>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <span class="attribute-name">Active Component</span>
-            <span class="attribute-value">Atenolol</span>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <span class="attribute-name">Price</span>
-            <span class="attribute-value">46 SAR</span>
-          </ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">Alternative Medication</span>
-        <span class="attribute-value">Sandoz</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid *ngIf="selectedSegment == 'usage-contradictions'">
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Usage</span>
-        <p>
-          Tenormin contains a medicine called atenolol. This belongs to a group
-          of medicines called beta-blockers. \n \nTenormin is used to:\n\n •
-          Treat high blood pressure (hypertension). \n \n • Treat uneven heart
-          beats (arrhythmias).\n \n • Help prevent chest pain (angina). \n \n •
-          Protect the heart in the early treatment after a\nheart attack
-          (myocardial infarction). \n\nIt works by making your heart beat more
-          slowly and with less force.
-        </p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Contradictions</span>
-        <p>
-          Do not take Tenormin if:\n \n-You are allergic (hypersensitive) to
-          atenolol or\nany of the other ingredients of Tenormin 100 mg Tablets
-          .\n\n- You have ever had any of the following heart problems:\n\n
-          -heart failure which is not under control (this usually makes you
-          breathless and causes your ankles to swell). \n \n -second- or
-          third-degree heart block (a condition which may be treated by a
-          pacemaker) very slow or very uneven heart beats, very low blood
-          pressure or very poor circulation.\n \n-You have a tumour called
-          phaeochromocytoma that is not being treated. This is usually near
-          your\nhey and can cause high blood pressure. If you are being treated
-          for phaeochromocytoma, your doctor will give you another medicine,
-          called an alpha-blocker, to take as well as Tenormin. \n\n- You have
-          been told that you have higher than normal levels of acid in your
-          blood (metabolic\nacidosis). \n\nCheck with your doctor or pharmacist
-          before taking Tenormin if: \n\n- You have asthma, wheezing or any
-          other\nsimilar breathing problems, or you get allergic reactions, for
-          example to insect stings. If you have ever had asthma or wheezing, do
-          not take this medicine without first checking with your doctor.\n\n-
-          You have a type of chest pain (angina) called Prinzmetal's angina.
-          \n\n- You have poor blood circulation or controlled heart
-          failure.\n\n- You have first-degree heart block. \n\n- You have
-          diabetes. Your medicine may change\nhow you respond to having low
-          blood sugar. You may feel your heart beating faster. \n\n-You have
-          thyrotoxicosis (a condition caused by overactive thyroid gland). Your
-          medicine may hide the symptoms of thyrotoxicosis. \n\n-You have
-          problems with your kidneys. You may need to have some check-ups during
-          your treatment.
-        </p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid *ngIf="selectedSegment == 'dosage-sideEffect'">
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Dosage</span>
-        <p>
-          Always take Tenormin exactly as your doctor has told you. You should
-          check with your doctor or pharmacist if you are not sure.\n \n - Your
-          doctor will tell you how many tablets to take\neach day and when to
-          take them. Read the label on the carton to remind you what the doctor
-          said. \n\n- Swallow your Tenormin tablet whole with a drink\nof water.
-          \n\n- Try to take your tablet at the same time each day. \n\n\nAdults:
-          \n\n- High blood pressure (hypertension): the usual\ndose is 50 mg o
-          100 mg a day.\n\n- Chest pain (angina): the usual dose is 100 mg
-          a\nday or 50 mg twice a day. \n\n- Uneven heart beats (arrhythmias):
-          the usual\ndose is 50 mg to 100 mg a day. \n\n- The early treatment of
-          a heart attack (myocardial infarction): the usual dose is 50 mg\nto
-          100 mg a day. \n\nElderly people:\n\n If you are an elderly person,
-          your doctor may decide to give you a lower dose, particularly if you
-          have problems with your kidneys.\n\n\nPeople with severe kidney
-          problems:\n\n If you have severe kidney problems your doctor me decide
-          to give you a lower dose. \n \nChildren:\n\n Your medicine must not be
-          given to children.\n \n If you take more Tenormin than you should:\n
-          \n If you take more Tenormin than prescribed by your doctor, talk to a
-          doctor or go to a hospital straight away. Take the medicine pack with
-          you so that the tablets can be identified.\n \n If you forget to take
-          Tenormin:\n \nIf you forget to take a dose, take it as soon as you
-          remember. However, if it is almost time for the next dose, skip the
-          missed dose. Do not take a double dose to make up for a forgotten
-          dose. \n\nIf you stop taking Tenormin:\n\n Do not stop taking Tenormin
-          without talking to your doctor. In some cases, you may need to stop
-          taking it gradually\n\nAlways take Tenormin exactly as your doctor has
-          told you. You should check with your doctor or pharmacist if you are
-          not sure.\n \n - Your doctor will tell you how many tablets to
-          take\neach day and when to take them. Read the label on the carton to
-          remind you what the doctor said. \n\n- Swallow your Tenormin tablet
-          whole with a drink\nof water. \n\n- Try to take your tablet at the
-          same time each day. \n\n\nAdults: \n\n- High blood pressure
-          (hypertension): the usual\ndose is 50 mg o 100 mg a day.\n\n- Chest
-          pain (angina): the usual dose is 100 mg a\nday or 50 mg twice a day.
-          \n\n- Uneven heart beats (arrhythmias): the usual\ndose is 50 mg to
-          100 mg a day. \n\n- The early treatment of a heart attack (myocardial
-          infarction): the usual dose is 50 mg\nto 100 mg a day. \n\nElderly
-          people:\n\n If you are an elderly person, your doctor may decide to
-          give you a lower dose, particularly if you have problems with your
-          kidneys.\n\n\nPeople with severe kidney problems:\n\n If you have
-          severe kidney problems your doctor me decide to give you a lower dose.
-          \n \nChildren:\n\n Your medicine must not be given to children.\n \n
-          If you take more Tenormin than you should:\n \n If you take more
-          Tenormin than prescribed by your doctor, talk to a doctor or go to a
-          hospital straight away. Take the medicine pack with you so that the
-          tablets can be identified.\n \n If you forget to take Tenormin:\n \nIf
-          you forget to take a dose, take it as soon as you remember. However,
-          if it is almost time for the next dose, skip the missed dose. Do not
-          take a double dose to make up for a forgotten dose. \n\nIf you stop
-          taking Tenormin:\n\n Do not stop taking Tenormin without talking to
-          your doctor. In some cases, you may need to stop taking it gradually.
-        </p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Side Effects</span>
-        <p>
-          Allergic reactions:\n \n If you have an allergic reaction, see a
-          doctor straight away. The signs may include raised lumps on your skin
-          (weals), or swelling of your face, lips, mouth, tongue or throat \n
-          \nOther possible side effects: Common (affects less than 1 in 10
-          people)\n\n-You may notice that your pulse rate becomes slower while
-          you are taking the tablets. This is normal, but if you are concerned
-          please tell your doctor about it. \n\n-Cold hands and
-          feet.\n-Diarrhoea. \n- Feeling sick (nausea).\n- Feeling tired.
-          \n\nUncommon (affects less than 1 in 100 people)\n\n- Disturbed sleep.
-          \n\nRare (affects less than 1 in 1,000 people)\n\n - Heart block
-          (which can cause dizziness, abnormal\nheart beat, tiredness or
-          fainting).\n- Numbness and spasm in your fingers which is\nfollowed by
-          warmth and pain (Raynaud's disease).\n- Mood changes.\n-Nightmares.
-          \n-Feeling confused.\n- Changes in personality (psychoses) or
-          hallucinations\n-Headache.\n- Dizziness (particularly when standing
-          up). \n- Tingling of your hands.
-        </p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid *ngIf="selectedSegment == 'storage-components'">
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Storage</span>
-        <p>
-          Keep your medicine in a safe place where children cannot see or reach
-          it. Your medicine could harm them.\n- Do not store above 25°C. Store
-          your tablets in the original package. Keep the blister strip in the
-          carton. This will protect your medicine from light and moisture. \n-
-          Do not use your tablets after the expiry date which is stated on the
-          blister strip and carton. The\nexpiry date refers to the last day of
-          that month. \n\nMedicines should not be disposed of via wastewater or
-          household waste. Ask your pharmacist how to dispose of medicines that
-          are no longer required. These measures will help to protect the
-          environment.
-        </p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Components</span>
-        <p>
-          \nThe active substance is atenolol. Each tablet contains 100 mg
-          (milligrams) of atenolol. The other ingredients are gelatin, magnesium
-          carbonate, magnesium stearate, methylhydroxypropylcellulose, sodium
-          laurilsulfate, maize starch, titanium dioxide (E171), Macrogol, Sunset
-          Yellow Lake (E110) and talc.
-        </p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid *ngIf="selectedSegment == 'Manufacturer-Details'">
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Manufacturer Name</span>
-        <span class="attribute-value"
-          >Julphar Gulf Pharmaceutical Industries</span
-        >
-      </ion-col>
-      <ion-col>
-        <span class="attribute-name">Telephone Number</span>
-        <span class="attribute-value">(971) 800-4994</span>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <span class="attribute-name">Location</span>
-        <span class="attribute-value">Ras AlKhaimah, U.A.E</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
-
-  <ion-grid>
+  <ion-grid *ngIf="data">
     <ion-row>
       <ion-col class="medication-image"></ion-col>
       <ion-col>
@@ -286,13 +43,10 @@
       <ion-col class="details">
         <span class="attribute-name">Usage</span>
         <p>
-          Tenormin contains a medicine called atenolol. This belongs to a group
-          of medicines called beta-blockers. \n \nTenormin is used to:\n\n •
-          Treat high blood pressure (hypertension). \n \n • Treat uneven heart
-          beats (arrhythmias).\n \n • Help prevent chest pain (angina). \n \n •
-          Protect the heart in the early treatment after a\nheart attack
-          (myocardial infarction). \n\nIt works by making your heart beat more
-          slowly and with less force.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique hic
+          laboriosam sunt, voluptates nihil commodi quos veniam cum reiciendis
+          maiores, quia odit adipisci voluptatibus doloribus omnis debitis.
+          Mollitia, nam rem!
         </p>
       </ion-col>
     </ion-row>
@@ -300,33 +54,9 @@
       <ion-col class="details">
         <span class="attribute-name">Contradictions</span>
         <p>
-          Do not take Tenormin if:\n \n-You are allergic (hypersensitive) to
-          atenolol or\nany of the other ingredients of Tenormin 100 mg Tablets
-          .\n\n- You have ever had any of the following heart problems:\n\n
-          -heart failure which is not under control (this usually makes you
-          breathless and causes your ankles to swell). \n \n -second- or
-          third-degree heart block (a condition which may be treated by a
-          pacemaker) very slow or very uneven heart beats, very low blood
-          pressure or very poor circulation.\n \n-You have a tumour called
-          phaeochromocytoma that is not being treated. This is usually near
-          your\nhey and can cause high blood pressure. If you are being treated
-          for phaeochromocytoma, your doctor will give you another medicine,
-          called an alpha-blocker, to take as well as Tenormin. \n\n- You have
-          been told that you have higher than normal levels of acid in your
-          blood (metabolic\nacidosis). \n\nCheck with your doctor or pharmacist
-          before taking Tenormin if: \n\n- You have asthma, wheezing or any
-          other\nsimilar breathing problems, or you get allergic reactions, for
-          example to insect stings. If you have ever had asthma or wheezing, do
-          not take this medicine without first checking with your doctor.\n\n-
-          You have a type of chest pain (angina) called Prinzmetal's angina.
-          \n\n- You have poor blood circulation or controlled heart
-          failure.\n\n- You have first-degree heart block. \n\n- You have
-          diabetes. Your medicine may change\nhow you respond to having low
-          blood sugar. You may feel your heart beating faster. \n\n-You have
-          thyrotoxicosis (a condition caused by overactive thyroid gland). Your
-          medicine may hide the symptoms of thyrotoxicosis. \n\n-You have
-          problems with your kidneys. You may need to have some check-ups during
-          your treatment.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquid
+          enim ipsam quibusdam sapiente sunt, unde dolorem voluptatem cum quam
+          labore modi quis incidunt ipsum quod nemo eaque inventore quia.
         </p>
       </ion-col>
     </ion-row>
@@ -334,57 +64,10 @@
       <ion-col class="details">
         <span class="attribute-name">Dosage</span>
         <p>
-          Always take Tenormin exactly as your doctor has told you. You should
-          check with your doctor or pharmacist if you are not sure.\n \n - Your
-          doctor will tell you how many tablets to take\neach day and when to
-          take them. Read the label on the carton to remind you what the doctor
-          said. \n\n- Swallow your Tenormin tablet whole with a drink\nof water.
-          \n\n- Try to take your tablet at the same time each day. \n\n\nAdults:
-          \n\n- High blood pressure (hypertension): the usual\ndose is 50 mg o
-          100 mg a day.\n\n- Chest pain (angina): the usual dose is 100 mg
-          a\nday or 50 mg twice a day. \n\n- Uneven heart beats (arrhythmias):
-          the usual\ndose is 50 mg to 100 mg a day. \n\n- The early treatment of
-          a heart attack (myocardial infarction): the usual dose is 50 mg\nto
-          100 mg a day. \n\nElderly people:\n\n If you are an elderly person,
-          your doctor may decide to give you a lower dose, particularly if you
-          have problems with your kidneys.\n\n\nPeople with severe kidney
-          problems:\n\n If you have severe kidney problems your doctor me decide
-          to give you a lower dose. \n \nChildren:\n\n Your medicine must not be
-          given to children.\n \n If you take more Tenormin than you should:\n
-          \n If you take more Tenormin than prescribed by your doctor, talk to a
-          doctor or go to a hospital straight away. Take the medicine pack with
-          you so that the tablets can be identified.\n \n If you forget to take
-          Tenormin:\n \nIf you forget to take a dose, take it as soon as you
-          remember. However, if it is almost time for the next dose, skip the
-          missed dose. Do not take a double dose to make up for a forgotten
-          dose. \n\nIf you stop taking Tenormin:\n\n Do not stop taking Tenormin
-          without talking to your doctor. In some cases, you may need to stop
-          taking it gradually\n\nAlways take Tenormin exactly as your doctor has
-          told you. You should check with your doctor or pharmacist if you are
-          not sure.\n \n - Your doctor will tell you how many tablets to
-          take\neach day and when to take them. Read the label on the carton to
-          remind you what the doctor said. \n\n- Swallow your Tenormin tablet
-          whole with a drink\nof water. \n\n- Try to take your tablet at the
-          same time each day. \n\n\nAdults: \n\n- High blood pressure
-          (hypertension): the usual\ndose is 50 mg o 100 mg a day.\n\n- Chest
-          pain (angina): the usual dose is 100 mg a\nday or 50 mg twice a day.
-          \n\n- Uneven heart beats (arrhythmias): the usual\ndose is 50 mg to
-          100 mg a day. \n\n- The early treatment of a heart attack (myocardial
-          infarction): the usual dose is 50 mg\nto 100 mg a day. \n\nElderly
-          people:\n\n If you are an elderly person, your doctor may decide to
-          give you a lower dose, particularly if you have problems with your
-          kidneys.\n\n\nPeople with severe kidney problems:\n\n If you have
-          severe kidney problems your doctor me decide to give you a lower dose.
-          \n \nChildren:\n\n Your medicine must not be given to children.\n \n
-          If you take more Tenormin than you should:\n \n If you take more
-          Tenormin than prescribed by your doctor, talk to a doctor or go to a
-          hospital straight away. Take the medicine pack with you so that the
-          tablets can be identified.\n \n If you forget to take Tenormin:\n \nIf
-          you forget to take a dose, take it as soon as you remember. However,
-          if it is almost time for the next dose, skip the missed dose. Do not
-          take a double dose to make up for a forgotten dose. \n\nIf you stop
-          taking Tenormin:\n\n Do not stop taking Tenormin without talking to
-          your doctor. In some cases, you may need to stop taking it gradually.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores
+          exercitationem sequi obcaecati reprehenderit delectus quis corporis ea
+          unde molestiae? Laudantium quod dolor reiciendis aliquid. Dolores
+          temporibus eveniet fuga explicabo suscipit.
         </p>
       </ion-col>
     </ion-row>
@@ -392,22 +75,10 @@
       <ion-col class="details">
         <span class="attribute-name">Side Effects</span>
         <p>
-          Allergic reactions:\n \n If you have an allergic reaction, see a
-          doctor straight away. The signs may include raised lumps on your skin
-          (weals), or swelling of your face, lips, mouth, tongue or throat \n
-          \nOther possible side effects: Common (affects less than 1 in 10
-          people)\n\n-You may notice that your pulse rate becomes slower while
-          you are taking the tablets. This is normal, but if you are concerned
-          please tell your doctor about it. \n\n-Cold hands and
-          feet.\n-Diarrhoea. \n- Feeling sick (nausea).\n- Feeling tired.
-          \n\nUncommon (affects less than 1 in 100 people)\n\n- Disturbed sleep.
-          \n\nRare (affects less than 1 in 1,000 people)\n\n - Heart block
-          (which can cause dizziness, abnormal\nheart beat, tiredness or
-          fainting).\n- Numbness and spasm in your fingers which is\nfollowed by
-          warmth and pain (Raynaud's disease).\n- Mood changes.\n-Nightmares.
-          \n-Feeling confused.\n- Changes in personality (psychoses) or
-          hallucinations\n-Headache.\n- Dizziness (particularly when standing
-          up). \n- Tingling of your hands.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
+          quidem in, quasi at voluptate ducimus dolores, animi similique
+          consectetur nihil autem? Sit alias praesentium temporibus, rerum minus
+          sequi consequatur unde!
         </p>
       </ion-col>
     </ion-row>
@@ -415,16 +86,10 @@
       <ion-col class="details">
         <span class="attribute-name">Storage</span>
         <p>
-          Keep your medicine in a safe place where children cannot see or reach
-          it. Your medicine could harm them.\n- Do not store above 25°C. Store
-          your tablets in the original package. Keep the blister strip in the
-          carton. This will protect your medicine from light and moisture. \n-
-          Do not use your tablets after the expiry date which is stated on the
-          blister strip and carton. The\nexpiry date refers to the last day of
-          that month. \n\nMedicines should not be disposed of via wastewater or
-          household waste. Ask your pharmacist how to dispose of medicines that
-          are no longer required. These measures will help to protect the
-          environment.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt minus,
+          sapiente hic dolore necessitatibus exercitationem aliquam ea adipisci
+          veniam, quis id animi voluptatibus libero delectus odit cum tempore
+          vel sequi?
         </p>
       </ion-col>
     </ion-row>
@@ -432,11 +97,9 @@
       <ion-col class="details">
         <span class="attribute-name">Components</span>
         <p>
-          \nThe active substance is atenolol. Each tablet contains 100 mg
-          (milligrams) of atenolol. The other ingredients are gelatin, magnesium
-          carbonate, magnesium stearate, methylhydroxypropylcellulose, sodium
-          laurilsulfate, maize starch, titanium dioxide (E171), Macrogol, Sunset
-          Yellow Lake (E110) and talc.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt facilis
+          esse rerum molestias illum officia eveniet nobis vero est accusamus
+          similique, rem tempora eos non expedita. Error numquam velit ab.
         </p>
       </ion-col>
     </ion-row>
@@ -456,6 +119,132 @@
       <ion-col class="details">
         <span class="attribute-name">Location</span>
         <span class="attribute-value">Ras AlKhaimah, U.A.E</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- skeleton Text -->
+
+  <ion-grid *ngIf="!data">
+    <ion-row>
+      <ion-col
+        ><ion-skeleton-text class="image-skeleton" animated></ion-skeleton-text
+      ></ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+            <span class="attribute-name">Brand name</span>
+            <span class="attribute-value"
+              ><ion-skeleton-text animated></ion-skeleton-text
+            ></span>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <span class="attribute-name">Active Component</span>
+            <span class="attribute-value"
+              ><ion-skeleton-text animated></ion-skeleton-text
+            ></span>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <span class="attribute-name">Price</span>
+            <span class="attribute-value"
+              ><ion-skeleton-text animated></ion-skeleton-text
+            ></span>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Alternative Medication</span>
+        <span class="attribute-value"
+          ><ion-skeleton-text animated></ion-skeleton-text
+        ></span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Usage</span>
+        <p>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Contradictions</span>
+        <p>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Dosage</span>
+        <p>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Side Effects</span>
+        <p>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Storage</span>
+        <p>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Components</span>
+        <p>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Manufacturer Name</span>
+        <span class="attribute-value"
+          ><ion-skeleton-text animated></ion-skeleton-text
+        ></span>
+      </ion-col>
+      <ion-col class="details">
+        <span class="attribute-name">Telephone Number</span>
+        <span class="attribute-value"
+          ><ion-skeleton-text animated></ion-skeleton-text
+        ></span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="details">
+        <span class="attribute-name">Location</span>
+        <span class="attribute-value"
+          ><ion-skeleton-text animated></ion-skeleton-text
+        ></span>
       </ion-col>
     </ion-row>
   </ion-grid>
