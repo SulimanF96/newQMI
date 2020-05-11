@@ -9,8 +9,18 @@
 </ion-toolbar>
 
 <ion-content>
-  <!-- skeleton Text -->
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
 
+  <!-- skeleton Text -->
   <ion-grid *ngIf="dataStatus == 'loading'">
     <ion-row>
       <ion-col
@@ -142,19 +152,21 @@
         <ion-row>
           <ion-col>
             <span class="attribute-name">Brand name</span>
-            <span class="attribute-value">{{medicationDetails.name}}</span>
+            <span class="attribute-value">{{medicationDetails?.name}}</span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
             <span class="attribute-name">Active Component</span>
-            <span class="attribute-value">Atenolol</span>
+            <span class="attribute-value"
+              >{{medicationDetails?.ActiveComponent}}</span
+            >
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
             <span class="attribute-name">Price</span>
-            <span class="attribute-value">46 SAR</span>
+            <span class="attribute-value">{{medicationDetails?.Price}}</span>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -162,89 +174,43 @@
     <ion-row>
       <ion-col class="details">
         <span class="attribute-name">Alternative Medication</span>
-        <span class="attribute-value">Sandoz</span>
+        <span class="attribute-value">{{medicationDetails?.Alternative}}</span>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
         <span class="attribute-name">Usage</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique hic
-          laboriosam sunt, voluptates nihil commodi quos veniam cum reiciendis
-          maiores, quia odit adipisci voluptatibus doloribus omnis debitis.
-          Mollitia, nam rem!
-        </p>
+        <p>{{medicationDetails?.Description}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
         <span class="attribute-name">Contradictions</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquid
-          enim ipsam quibusdam sapiente sunt, unde dolorem voluptatem cum quam
-          labore modi quis incidunt ipsum quod nemo eaque inventore quia.
-        </p>
+        <p>{{medicationDetails?.Contradiction}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
         <span class="attribute-name">Dosage</span>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores
-          exercitationem sequi obcaecati reprehenderit delectus quis corporis ea
-          unde molestiae? Laudantium quod dolor reiciendis aliquid. Dolores
-          temporibus eveniet fuga explicabo suscipit.
-        </p>
+        <p>{{medicationDetails?.Dosage}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
         <span class="attribute-name">Side Effects</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
-          quidem in, quasi at voluptate ducimus dolores, animi similique
-          consectetur nihil autem? Sit alias praesentium temporibus, rerum minus
-          sequi consequatur unde!
-        </p>
+        <p>{{medicationDetails?.SideEffect}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
         <span class="attribute-name">Storage</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt minus,
-          sapiente hic dolore necessitatibus exercitationem aliquam ea adipisci
-          veniam, quis id animi voluptatibus libero delectus odit cum tempore
-          vel sequi?
-        </p>
+        <p>{{medicationDetails?.Storage}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
         <span class="attribute-name">Components</span>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt facilis
-          esse rerum molestias illum officia eveniet nobis vero est accusamus
-          similique, rem tempora eos non expedita. Error numquam velit ab.
-        </p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">Manufacturer Name</span>
-        <span class="attribute-value"
-          >Julphar Gulf Pharmaceutical Industries</span
-        >
-      </ion-col>
-      <ion-col class="details">
-        <span class="attribute-name">Telephone Number</span>
-        <span class="attribute-value">(971) 800-4994</span>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">Location</span>
-        <span class="attribute-value">Ras AlKhaimah, U.A.E</span>
+        <p>{{medicationDetails?.ingredients}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -266,9 +232,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button mode="ios" (click)="searchAgain()" class="try-again-button"
-          >Try again</ion-button
-        >
+        <ion-button mode="ios" (click)="searchAgain()" class="try-again-button">Try again</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

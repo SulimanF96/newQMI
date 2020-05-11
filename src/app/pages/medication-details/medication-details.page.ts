@@ -1,6 +1,7 @@
 import { MedicationService } from './../../services/medication.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Medication } from '../../models/medication-details';
 
 @Component({
   selector: 'app-medication-details',
@@ -11,7 +12,7 @@ export class MedicationDetailsPage implements OnInit {
 
   public medicationName: string;
   public dataStatus = 'loading';
-  public medicationDetails = {};
+  public medicationDetails: Medication;
 
   constructor(private route: ActivatedRoute, private medicationService: MedicationService) { }
 
@@ -20,23 +21,35 @@ export class MedicationDetailsPage implements OnInit {
       this.medicationName = params.get('medicationName');
     });
     this.serachForMedication(this.medicationName);
-    this.medicationService.getAllMedications().valueChanges().subscribe(res => {
-      console.log(res);
-    });
   }
 
   serachForMedication(medicationName: string) {
     this.medicationService.searchForMedication(medicationName).then((medicationDetails) => {
-      console.log(medicationDetails.val());
-      this.medicationDetails = medicationDetails.val();
-      this.dataStatus = 'found';
+      if (medicationDetails.val() != null) {
+        medicationDetails.forEach((medicationDetails) => {
+          this.medicationDetails = medicationDetails.val();
+        });
+        this.dataStatus = 'found';
+      } else {
+        this.dataStatus = 'not found';
+      }
     }).catch((error) => {
-      this.dataStatus = 'not found';
+      console.log(error);
     });
   }
 
   searchAgain() {
-    // this.dataStatus = 'loading';
-    // searchForMedication();
+    this.dataStatus = 'loading';
+    setTimeout(() => {
+      this.serachForMedication(this.medicationName);
+    }, 500);
+  }
+
+  doRefresh(event) {
+    this.dataStatus = 'loading';
+    setTimeout(() => {
+      this.serachForMedication(this.medicationName);
+      event.target.complete();
+    }, 500);
   }
 }
