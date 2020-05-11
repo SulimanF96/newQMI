@@ -1,3 +1,4 @@
+import { MedicationService } from './../../services/medication.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,16 +11,28 @@ export class MedicationDetailsPage implements OnInit {
 
   public medicationName: string;
   public dataStatus = 'loading';
+  public medicationDetails = {};
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private medicationService: MedicationService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.medicationName = params.get('medicationName');
     });
-    setTimeout(() => {
+    this.serachForMedication(this.medicationName);
+    this.medicationService.getAllMedications().valueChanges().subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  serachForMedication(medicationName: string) {
+    this.medicationService.searchForMedication(medicationName).then((medicationDetails) => {
+      console.log(medicationDetails.val());
+      this.medicationDetails = medicationDetails.val();
+      this.dataStatus = 'found';
+    }).catch((error) => {
       this.dataStatus = 'not found';
-    }, 1000);
+    });
   }
 
   searchAgain() {

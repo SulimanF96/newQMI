@@ -8,11 +8,23 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+export const config = {
+  apiKey: "AIzaSyCQ4xX0Gu94MO-g7nnLP8D0MIHLemViRlQ",
+  authDomain: "qmidb-20965.firebaseapp.com",
+  databaseURL: "https://qmidb-20965.firebaseio.com",
+
+  storageBucket: "qmidb-20965.appspot.com",
+  messagingSenderId: "125229134116"
+};
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule],
   providers: [
     StatusBar,
     SplashScreen,
@@ -20,4 +32,4 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
