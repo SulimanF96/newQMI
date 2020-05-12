@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  public medicationID: string;
+
+  constructor(private alertController: AlertController, private barcodeScanner: BarcodeScanner) { }
 
   ngOnInit() {
   }
 
+  async confirmOpeningCameraForBarcode() {
+    const alert = await this.alertController.create({
+      header: 'Confirm',
+      message: 'Do you want to open the camera ?',
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Okay',
+          handler: () => {
+            this.scanBarcode();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  scanBarcode() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+      this.medicationID = barcodeData.text;
+    }).catch(err => {
+      console.log('Error', err);
+    });
+  }
 }

@@ -41,6 +41,7 @@ export class SettingsPage implements OnInit {
   async presentActionSheetForChangingTheme() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Themes',
+      mode: 'ios',
       buttons: [{
         text: 'Tertiary',
         handler: () => {

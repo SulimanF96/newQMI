@@ -443,3 +443,16 @@ ion-searchbar {
 ion-toolbar {
   letter-spacing: 2px;
 }
+
+ion-alert {
+  .alert-wrapper {
+    .alert-head {
+      background-color: var(--ion-color-primary);
+      letter-spacing: 1px;
+    }
+    .alert-message {
+      background-color: var(--ion-color-primary);
+      letter-spacing: 1px;
+    }
+  }
+}
