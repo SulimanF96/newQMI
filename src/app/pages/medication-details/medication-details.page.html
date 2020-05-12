@@ -9,7 +9,6 @@
 </ion-toolbar>
 
 <ion-content>
-  
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content
       pullingIcon="chevron-down-circle-outline"
@@ -23,7 +22,7 @@
   <!-- skeleton Text -->
   <ion-grid *ngIf="dataStatus == 'loading'">
     <ion-row>
-      <ion-col
+      <ion-col class="image-col"
         ><ion-skeleton-text class="image-skeleton" animated></ion-skeleton-text
       ></ion-col>
       <ion-col>
@@ -232,7 +231,9 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button mode="ios" (click)="searchAgain()" class="try-again-button">Try again</ion-button>
+        <ion-button mode="ios" (click)="searchAgain()" class="try-again-button"
+          >Try again</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>
