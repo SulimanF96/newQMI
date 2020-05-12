@@ -1,0 +1,33 @@
+ion-slide {
+  height: 100vh;
+  flex-direction: column;
+  text-align: justify;
+  margin-right: 0px;
+  background-color: white;
+}
+
+h1 {
+  color: var(--ion-color-primary);
+}
+
+p {
+  padding: 2em;
+  letter-spacing: 1px;
+  color: var(--ion-color-primary-shade);
+}
+
+ion-img {
+  height: 39vh;
+  width: 50vw;
+  overflow: hidden;
+}
+
+ion-slides {
+  .swiper-pagination {
+    width: 100vw;
+  }
+}
+
+ion-button {
+  letter-spacing: 1px;
+}

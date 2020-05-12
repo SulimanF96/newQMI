@@ -1,10 +1,16 @@
+import { UserGuideGuard } from './guards/user-guide.guard';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [UserGuideGuard]
+  },
+  {
+    path: 'user-guide',
+    loadChildren: () => import('./pages/user-guide/user-guide.module').then(m => m.UserGuidePageModule)
   },
 ];
 @NgModule({
@@ -13,4 +19,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

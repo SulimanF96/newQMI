@@ -171,7 +171,7 @@
       }
 
       ion-tab-button.tab-selected {
-        color: var(--ion-color-primary);
+        color: #999999;
       }
     }
 
@@ -453,6 +453,26 @@ ion-alert {
     .alert-message {
       background-color: var(--ion-color-primary);
       letter-spacing: 1px;
+    }
+  }
+}
+
+ion-slides {
+  .swiper-wrapper ion-slide.swiper-slide-active {
+    width: 100vw !important;
+  }
+  .swiper-wrapper ion-slide.swiper-slide- {
+    width: 100vw !important;
+  }
+  .swiper-pagination.swiper-pagination-bullets {
+    width: 100vw;
+
+    .swiper-pagination-bullet {
+      background: #595959;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--ion-color-primary);
     }
   }
 }

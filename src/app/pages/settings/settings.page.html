@@ -1,22 +1,33 @@
 <ion-toolbar>
+  <ion-buttons routerLink="/tabs/home" slot="start">
+    <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+  </ion-buttons>
   <h1 class="ion-text-center">Settings</h1>
 </ion-toolbar>
 
 <ion-content>
   <ion-grid>
-    <ion-row (click)="presentActionSheetForLanguage()">
+    <ion-row>
       <ion-card>
-        <ion-card-content>
+        <ion-card-content (click)="presentActionSheetForLanguage()">
           <ion-text>Language</ion-text>
           <ion-icon size="large" name="arrow-forward"></ion-icon>
         </ion-card-content>
       </ion-card>
     </ion-row>
-    <ion-row (click)="presentActionSheetForChangingTheme()">
+    <ion-row>
       <ion-card>
-        <ion-card-content>
+        <ion-card-content (click)="presentActionSheetForChangingTheme()">
           <ion-text>Theme</ion-text>
           <div class="color" [style.background]="color"></div>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row>
+      <ion-card>
+        <ion-card-content routerLink="/user-guide">
+          <ion-text>User Guide</ion-text>
+          <ion-icon size="large" name="help-outline"></ion-icon>
         </ion-card-content>
       </ion-card>
     </ion-row>
