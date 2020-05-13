@@ -23,6 +23,7 @@ export class SettingsPage implements OnInit {
   async presentActionSheetForLanguage() {
     const actionSheet = await this.actionSheetController.create({
       header: 'Languages',
+      mode: 'ios',
       buttons: [{
         text: 'Arabic',
         handler: () => {
@@ -33,6 +34,10 @@ export class SettingsPage implements OnInit {
         handler: () => {
           this.language = 'english';
         }
+      }, {
+        text: 'Cancel',
+        cssClass: 'red',
+        role: 'cancel'
       }]
     });
     await actionSheet.present();
@@ -44,12 +49,14 @@ export class SettingsPage implements OnInit {
       mode: 'ios',
       buttons: [{
         text: 'Tertiary',
+        cssClass: 'tertiary',
         handler: () => {
           this.themeService.changeTheme('tertiary-theme');
           this.themeService.color.next('#5260ff');
         }
       }, {
         text: 'Green',
+        cssClass: 'green',
         handler: () => {
           this.themeService.changeTheme('green-theme');
           this.themeService.color.next('#69bb7bff');
@@ -57,6 +64,7 @@ export class SettingsPage implements OnInit {
       },
       {
         text: 'Red',
+        cssClass: 'red',
         handler: () => {
           this.themeService.changeTheme('red-theme');
           this.themeService.color.next('#eb445a');
@@ -64,6 +72,7 @@ export class SettingsPage implements OnInit {
       },
       {
         text: 'Blue',
+        cssClass: 'blue',
         handler: () => {
           this.themeService.changeTheme('blue-theme');
           this.themeService.color.next('#3880ff');
@@ -71,10 +80,15 @@ export class SettingsPage implements OnInit {
       },
       {
         text: 'Dark',
+        cssClass: 'dark',
         handler: () => {
           this.themeService.changeTheme('dark-theme');
           this.themeService.color.next('#222428');
         }
+      }, {
+        text: 'Cancel',
+        cssClass: 'red',
+        role: 'cancel'
       }]
     });
     await actionSheet.present();

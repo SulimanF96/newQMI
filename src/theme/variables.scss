@@ -465,24 +465,6 @@ ion-toolbar {
   letter-spacing: 2px;
 }
 
-ion-alert {
-  .alert-wrapper {
-    .alert-head {
-      background-color: var(--ion-color-primary);
-      letter-spacing: 1px;
-
-      .alert-title {
-        color: white;
-      }
-    }
-    .alert-message {
-      background-color: var(--ion-color-primary);
-      color: white;
-      letter-spacing: 1px;
-    }
-  }
-}
-
 ion-slides {
   .swiper-wrapper ion-slide.swiper-slide-active {
     width: 100vw !important;
@@ -500,5 +482,37 @@ ion-slides {
     .swiper-pagination-bullet-active {
       background: var(--ion-color-primary);
     }
+  }
+}
+
+// for cancel button
+
+.red {
+  span {
+    color: var(--ion-color-danger) !important;
+  }
+}
+
+.tertiary {
+  span {
+    color: var(--ion-color-tertiary) !important;
+  }
+}
+
+.green {
+  span {
+    color: #69bb7b !important;
+  }
+}
+
+.blue {
+  span {
+    color: #3880ff !important;
+  }
+}
+
+.dark {
+  span {
+    color: #222428 !important;
   }
 }

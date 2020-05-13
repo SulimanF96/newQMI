@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera/ngx';
 
 export const config = {
   apiKey: "AIzaSyCQ4xX0Gu94MO-g7nnLP8D0MIHLemViRlQ",
@@ -30,6 +31,7 @@ export const config = {
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
