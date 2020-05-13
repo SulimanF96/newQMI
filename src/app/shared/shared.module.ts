@@ -3,10 +3,11 @@ import { SearchByBarcodeComponent } from './components/search-by-barcode/search-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 
 @NgModule({
-  declarations: [ SearchByImageComponent, SearchByBarcodeComponent],
+  declarations: [ SearchByImageComponent, SearchByBarcodeComponent, ClickOutsideDirective],
   imports: [
     CommonModule,
     FormsModule,
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     SearchByImageComponent,
-    SearchByBarcodeComponent
+    SearchByBarcodeComponent,
+    ClickOutsideDirective
   ],
   entryComponents: []
 })
