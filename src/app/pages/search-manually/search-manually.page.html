@@ -6,18 +6,10 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-searchbar
-    [formControl]="medicationName"
-    mode="ios"
-    animated
-    howCancelButton="focus"
-  ></ion-searchbar>
+  <ion-searchbar [formControl]="medicationName" mode="ios" animated howCancelButton="focus"></ion-searchbar>
 
-  <div
-    [ngClass]="{'button-disabled': !medicationName.valid}"
-    (click)="medicationName.valid ? searchForMedication() : false"
-    class="search"
-  >
-    <ion-icon size="large" name="search-outline"></ion-icon>
-  </div>
+  <ion-fab-button [disabled]="!medicationName.valid" (click)="searchForMedication()" class="search">
+    <ion-icon name="search-outline"></ion-icon>
+  </ion-fab-button>
+
 </ion-content>

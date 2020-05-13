@@ -24,7 +24,6 @@ export class TabsPage {
   }
 
   handleOutsideClick() {
-    console.log('out');
     this.ionFab.close();
   }
 
