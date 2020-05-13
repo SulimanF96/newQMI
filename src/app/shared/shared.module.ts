@@ -1,10 +1,12 @@
+import { SearchByImageComponent } from './components/search-by-image/search-by-image.component';
+import { SearchByBarcodeComponent } from './components/search-by-barcode/search-by-barcode.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ SearchByImageComponent, SearchByBarcodeComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -13,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     FormsModule,
     ReactiveFormsModule,
+    SearchByImageComponent,
+    SearchByBarcodeComponent
   ],
   entryComponents: []
 })

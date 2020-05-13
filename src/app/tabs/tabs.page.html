@@ -1,7 +1,5 @@
 <ion-tabs>
-
   <ion-tab-bar slot="bottom">
-
     <ion-tab-button tab="home">
       <ion-icon name="home-outline"></ion-icon>
     </ion-tab-button>
@@ -9,7 +7,6 @@
     <ion-tab-button tab="settings">
       <ion-icon name="settings-outline"></ion-icon>
     </ion-tab-button>
-
   </ion-tab-bar>
 </ion-tabs>
 
@@ -18,8 +15,28 @@
     <ion-icon name="search-outline"></ion-icon>
   </ion-fab-button>
   <ion-fab-list side="top">
-    <ion-fab-button routerLink="/tabs/search-manually" type="button" color="dark"><ion-icon name="text-outline"></ion-icon></ion-fab-button>
-    <ion-fab-button type="button" color="dark"><ion-icon name="barcode-outline"></ion-icon></ion-fab-button>
-    <ion-fab-button type="button" color="dark"><ion-icon name="camera-outline"></ion-icon></ion-fab-button>
+    <ion-fab-button
+      routerLink="/tabs/search-manually"
+      type="button"
+      color="dark"
+    >
+      <ion-icon name="text-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button
+      (click)="openBarcodeScannerDialog()"
+      type="button"
+      color="dark"
+    >
+      <ion-icon name="barcode-outline"></ion-icon>
+      <app-search-by-barcode></app-search-by-barcode>
+    </ion-fab-button>
+    <ion-fab-button
+      (click)="openImageSearchDialog()"
+      type="button"
+      color="dark"
+    >
+      <ion-icon name="camera-outline"></ion-icon>
+      <app-search-by-image></app-search-by-image>
+    </ion-fab-button>
   </ion-fab-list>
 </ion-fab>

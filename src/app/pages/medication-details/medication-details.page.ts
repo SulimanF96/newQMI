@@ -1,4 +1,4 @@
-import { MedicationService } from './../../services/medication.service';
+import { MedicationService } from '../../shared/services/medication.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Medication } from '../../models/medication-details';

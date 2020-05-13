@@ -15,22 +15,21 @@
     <ion-row>
       <ion-col size="6">
         <div>
-          <ion-card (click)="selectSource()" class="ion-text-center">
+          <ion-card (click)="openImageSearchDialog()" class="ion-text-center">
             <ion-card-content>
               <ion-icon size="large" name="camera-outline"></ion-icon>
-              <h1>Capture the name</h1>
+              <h1>Search by image</h1>
+              <app-search-by-image></app-search-by-image>
             </ion-card-content>
           </ion-card>
         </div>
       </ion-col>
       <ion-col size="6">
-        <ion-card
-          (click)="confirmOpeningCameraForBarcode()"
-          class="ion-text-center"
-        >
+        <ion-card (click)="openBarcodeScannerDialog()" class="ion-text-center">
           <ion-card-content>
             <ion-icon size="large" name="qr-code-outline"></ion-icon>
             <h1>Search by barcode</h1>
+            <app-search-by-barcode></app-search-by-barcode>
           </ion-card-content>
         </ion-card>
       </ion-col>
