@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ActionSheetController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-by-barcode',
@@ -9,9 +10,8 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class SearchByBarcodeComponent implements OnInit {
 
-  private medicationID: string;
 
-  constructor(private actionSheetController: ActionSheetController, private barcodeScanner: BarcodeScanner) { }
+  constructor(private actionSheetController: ActionSheetController, private barcodeScanner: BarcodeScanner, private router: Router) { }
 
   ngOnInit() { }
 
@@ -38,10 +38,14 @@ export class SearchByBarcodeComponent implements OnInit {
   scanBarcode() {
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
-      this.medicationID = barcodeData.text;
+      this.searchForMedication(barcodeData.text);
     }).catch(err => {
       console.log('Error', err);
     });
+  }
+
+  searchForMedication(medicationID: string) {
+    this.router.navigate(['/tabs/medication-details', { medicationName: null, medicationID: medicationID }]);
   }
 
 }

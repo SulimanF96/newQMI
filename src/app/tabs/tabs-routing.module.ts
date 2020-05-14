@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('../pages/search-manually/search-manually.module').then(m => m.SearchManuallyPageModule)
       },
       {
-        path: 'medication-details/:medicationName',
+        path: 'medication-details',
         loadChildren: () => import('../pages/medication-details/medication-details.module').then(m => m.MedicationDetailsPageModule)
       },
       {

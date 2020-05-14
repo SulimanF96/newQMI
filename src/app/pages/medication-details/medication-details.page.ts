@@ -11,20 +11,37 @@ import { Medication } from '../../models/medication-details';
 export class MedicationDetailsPage implements OnInit {
 
   public medicationName: string;
+  private medicationID: string;
   public dataStatus = 'loading';
   public medicationDetails: Medication;
 
   constructor(private route: ActivatedRoute, private medicationService: MedicationService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.medicationName = params.get('medicationName');
+    this.route.params.subscribe(params => {
+      this.medicationName = params['medicationName'];
+      this.medicationID = params['medicationID'];
     });
-    this.serachForMedication(this.medicationName);
+    this.medicationID === 'null' ? this.serachForMedicationWithName(this.medicationName) : this.serachForMedicationWithID(this.medicationID);
   }
 
-  serachForMedication(medicationName: string) {
-    this.medicationService.searchForMedication(medicationName).then((medicationDetails) => {
+  serachForMedicationWithName(medicationName: string) {
+    this.medicationService.searchForMedicationWithName(medicationName).then((medicationDetails) => {
+      if (medicationDetails.val() != null) {
+        medicationDetails.forEach((medicationDetails) => {
+          this.medicationDetails = medicationDetails.val();
+        });
+        this.dataStatus = 'found';
+      } else {
+        this.dataStatus = 'not found';
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  serachForMedicationWithID(medicationID: string) {
+    this.medicationService.searchForMedicationWithID(medicationID).then((medicationDetails) => {
       if (medicationDetails.val() != null) {
         medicationDetails.forEach((medicationDetails) => {
           this.medicationDetails = medicationDetails.val();
@@ -41,14 +58,14 @@ export class MedicationDetailsPage implements OnInit {
   searchAgain() {
     this.dataStatus = 'loading';
     setTimeout(() => {
-      this.serachForMedication(this.medicationName);
+      this.medicationID === 'null' ? this.serachForMedicationWithName(this.medicationName) : this.serachForMedicationWithID(this.medicationID);
     }, 500);
   }
 
   doRefresh(event) {
     this.dataStatus = 'loading';
     setTimeout(() => {
-      this.serachForMedication(this.medicationName);
+      this.medicationID === 'null' ? this.serachForMedicationWithName(this.medicationName) : this.serachForMedicationWithID(this.medicationID);
       event.target.complete();
     }, 500);
   }
