@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
+import * as Tesseract from 'tesseract.js';
 
 @Component({
   selector: 'app-search-by-image',
@@ -10,8 +12,9 @@ import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/n
 export class SearchByImageComponent implements OnInit {
 
   private selectedImage: string;
+  private extractedText: string;
 
-  constructor(private actionSheetController: ActionSheetController, private camera: Camera) { }
+  constructor(private actionSheetController: ActionSheetController, private camera: Camera, private router: Router) { }
 
   ngOnInit() { }
 
@@ -43,36 +46,27 @@ export class SearchByImageComponent implements OnInit {
   fetchPicture(sourceType: PictureSourceType) {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       sourceType: sourceType,
       allowEdit: true,
       saveToPhotoAlbum: false,
       correctOrientation: false
-    }
+    };
     this.camera.getPicture(options).then((imageData) => {
       this.selectedImage = `data:image/jpeg;base64,${imageData}`;
-      //this.recognizeImage();
+      this.extractTextFromImage();
     });
   }
 
-  // recognizeImage() {
-  //   const loading = this.load.create({
-  //     content: 'Extracting medication name....'
-  //   });
-  //   loading.present();
-  //   Tesseract.recognize(this.selectedImage)
-  //   .catch(err => console.log("error"))
-  //   .then(result => {
-  //     this.imageText = result.text.trim();
-  //     loading.dismiss();
-  //   })
-  //   .finally(resultOrError => {
-  //    // this.progress.complete();
-  //     this.searchResultPage();
-  //   });
-  //   //console.log("bashbfhvdhaf");
-  // }
+  extractTextFromImage() {
+    Tesseract.recognize(this.selectedImage).then(({ data: { text } }) => {
+      this.extractedText = text.trim();
+      this.router.navigate(['/tabs/medication-details', { medicationName: this.extractedText, medicationID: null }]);
+    }).catch(err => {
+      console.log("error");
+    });
+  }
 
 }
