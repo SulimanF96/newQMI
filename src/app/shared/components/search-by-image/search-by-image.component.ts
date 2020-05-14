@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import * as Tesseract from 'tesseract.js';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-search-by-image',
@@ -14,7 +15,7 @@ export class SearchByImageComponent implements OnInit {
   private selectedImage: string;
   private extractedText: string;
 
-  constructor(private actionSheetController: ActionSheetController, private camera: Camera, private router: Router) { }
+  constructor(private actionSheetController: ActionSheetController, private camera: Camera, private router: Router, private loadingController: LoadingController) { }
 
   ngOnInit() { }
 
@@ -60,8 +61,13 @@ export class SearchByImageComponent implements OnInit {
     });
   }
 
-  extractTextFromImage() {
+  async extractTextFromImage() {
+    const loading = await this.loadingController.create({
+      message: 'Extracting...',
+    });
+    await loading.present();
     Tesseract.recognize(this.selectedImage).then(({ data: { text } }) => {
+      loading.dismiss();
       this.extractedText = text.trim();
       this.router.navigate(['/tabs/medication-details', { medicationName: this.extractedText, medicationID: null }]);
     }).catch(err => {
