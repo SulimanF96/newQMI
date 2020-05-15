@@ -1,4 +1,4 @@
-import { Storage } from '@ionic/storage';
+import { UserProfileService } from './../../shared/services/user-profile.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './../../shared/services/auth.service';
 import { ThemeService } from '../../shared/services/theme.service';
@@ -22,7 +22,7 @@ export class SettingsPage implements OnInit {
               public authService: AuthService,
               private router: Router,
               private angularFireAuth: AngularFireAuth,
-              private storage: Storage) { }
+              private userProfileService: UserProfileService) { }
 
   ngOnInit() {
     this.angularFireAuth.authState.subscribe(user => {
@@ -118,8 +118,7 @@ export class SettingsPage implements OnInit {
   logout() {
     this.authService.logout().then(res => {
       console.log('user was logged out', res);
-      this.storage.set('isLoggedIn', false);
-      // clear storage
+      this.userProfileService.userProfile$.next(null);
       this.router.navigate(['tabs/home']);
     }).catch(error => {
       console.log('user was not logged out', error);

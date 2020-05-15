@@ -1,3 +1,4 @@
+import { UserProfileService } from './shared/services/user-profile.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 
@@ -15,7 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private angularFireAuth: AngularFireAuth
+    private angularFireAuth: AngularFireAuth,
+    private userProfileService: UserProfileService
   ) {
     this.initializeApp();
   }
@@ -29,8 +31,14 @@ export class AppComponent {
       this.splashScreen.hide();
       this.angularFireAuth.authState.subscribe(user => {
         if (user) {
-          // fetch user profile
-          console.log('profile is fetched', user);
+          this.userProfileService.getUserProfile(user.uid).then(userProfile => {
+            userProfile.forEach((userProfile) => {
+              this.userProfileService.userProfile$.next(userProfile.val());
+            });
+          }).catch(error => {
+            console.log(error);
+          });
+          console.log('profile is fetched', user.uid);
         } else {
           console.log('no user so no profile', user);
         }
