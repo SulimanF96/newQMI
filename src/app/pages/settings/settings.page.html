@@ -31,5 +31,13 @@
         </ion-card-content>
       </ion-card>
     </ion-row>
+    <ion-row *ngIf="userIsLoggedIn">
+      <ion-card>
+        <ion-card-content (click)="logout()">
+          <ion-text>Logout</ion-text>
+          <ion-icon size="large" name="log-out-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
   </ion-grid>
 </ion-content>

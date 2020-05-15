@@ -43,7 +43,7 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col size="6">
+      <ion-col *ngIf="!userIsLoggedIn" size="6">
         <ion-card routerLink="/tabs/login" class="ion-text-center">
           <ion-card-content>
             <ion-icon size="large" name="log-in-outline"></ion-icon>

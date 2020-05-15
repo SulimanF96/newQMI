@@ -32,6 +32,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/signup/signup.module').then( m => m.SignupPageModule)
       },
       {
+        path: 'more',
+        loadChildren: () => import('../pages/more/more.module').then( m => m.MorePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

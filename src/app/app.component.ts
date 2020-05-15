@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -13,7 +14,8 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private angularFireAuth: AngularFireAuth
   ) {
     this.initializeApp();
   }
@@ -22,10 +24,17 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.backgroundColorByHexString('#ffffff');
       this.statusBar.styleDefault();
-
       // this.statusBar.backgroundColorByName('black');
       // this.statusBar.styleLightContent();
       this.splashScreen.hide();
+      this.angularFireAuth.authState.subscribe(user => {
+        if (user) {
+          // fetch user profile
+          console.log('profile is fetched', user);
+        } else {
+          console.log('no user so no profile', user);
+        }
+      });
     });
   }
 }

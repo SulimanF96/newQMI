@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { AuthService } from './../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -13,7 +14,7 @@ export class SignupPage implements OnInit {
   public credentials: FormGroup;
   public errorMessage: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private storage: Storage) { }
 
   ngOnInit() {
     this.credentials = new FormGroup({
@@ -25,11 +26,13 @@ export class SignupPage implements OnInit {
   signUp() {
     this.authService.createUser(this.credentials.value).then( user => {
       console.log(user);
-      this.router.navigate(['tabs/login']);
+      // create user profile
+      this.storage.set('isLoggedIn', true);
+      this.router.navigate(['tabs/home']);
     }).catch( error => {
       console.log(error);
       this.errorMessage = error.message;
-    })
+    });
   }
 
 }

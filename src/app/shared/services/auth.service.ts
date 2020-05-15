@@ -8,22 +8,13 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor(private angularFireAuth: AngularFireAuth) {
-    this.angularFireAuth.authState.subscribe(user => {
-      if (user) {
-        console.log(user.uid);
-      } else {
-
-      }
-    });
-  }
+  constructor(private angularFireAuth: AngularFireAuth) {}
 
   createUser(credentials: User) {
     return this.angularFireAuth.createUserWithEmailAndPassword(credentials.email, credentials.password);
   }
 
   login(credentials: User) {
-    console.log(credentials);
     return this.angularFireAuth.signInWithEmailAndPassword(credentials.email, credentials.password);
   }
 

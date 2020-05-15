@@ -1,6 +1,8 @@
+import { Storage } from '@ionic/storage';
 import { AuthService } from './../../shared/services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginPage implements OnInit {
   public credentials: FormGroup;
   public errorMessage: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router, private storage: Storage) { }
 
   ngOnInit() {
     this.credentials = new FormGroup({
@@ -24,8 +26,10 @@ export class LoginPage implements OnInit {
   login() {
     console.log(this.credentials.value);
     this.authService.login(this.credentials.value).then(user => {
-      console.log(user);
-      console.log(user.user.uid);
+      // fetch profile with id
+      this.storage.set('isLoggedIn', true);
+      this.credentials.reset();
+      this.router.navigate(['tabs/home']);
     }).catch(error => {
       console.log(error);
       this.errorMessage = error.message;
