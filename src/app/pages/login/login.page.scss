@@ -1,0 +1,48 @@
+ion-grid {
+  margin-top: 103px;
+}
+
+div {
+  background-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.07);
+  border-radius: 25px;
+  width: 78vw;
+  margin: auto;
+}
+
+div.login-submit {
+  background: white;
+}
+
+ion-button {
+  width: 100%;
+  --border-radius: 25px;
+}
+
+ion-input {
+  --placeholder-color: black;
+  --color: var(--ion-color-primary);
+}
+
+ion-text.forget-password {
+  float: right;
+  margin-right: 50px;
+  color: #595959;
+}
+
+ion-text.sign-up {
+  color: #595959;
+}
+
+span {
+  color: var(--ion-color-primary);
+  text-decoration: underline;
+}
+
+h1 {
+  margin-top: 20px;
+  display: inline-block;
+  margin-left: 46px;
+  font-size: 51px;
+  color: var(--ion-color-primary);
+  border-bottom: 6px solid #999999;
+}

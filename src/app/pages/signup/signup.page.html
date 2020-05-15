@@ -1,0 +1,40 @@
+<ion-toolbar>
+  <ion-buttons routerLink="/tabs/login" slot="start">
+    <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="credentials" (ngSubmit)="signUp()">
+      <ion-row>
+        <ion-col>
+          <h1>Sign Up</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="username">
+            <ion-input mode="ios" type="text" clearInput placeholder="Username" formControlName="user_email">
+            </ion-input>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="password">
+            <ion-input mode="ios" type="password" clearInput placeholder="Password" formControlName="user_password">
+            </ion-input>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="signup-submit">
+            <ion-button [disabled]="!credentials.valid" type="submit" class="signup-button">Sign Up</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

@@ -24,6 +24,14 @@ const routes: Routes = [
         loadChildren: () => import('../pages/medication-details/medication-details.module').then(m => m.MedicationDetailsPageModule)
       },
       {
+        path: 'login',
+        loadChildren: () => import('../pages/login/login.module').then( m => m.LoginPageModule)
+      },
+      {
+        path: 'signup',
+        loadChildren: () => import('../pages/signup/signup.module').then( m => m.SignupPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
