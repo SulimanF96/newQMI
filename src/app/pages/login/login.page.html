@@ -12,10 +12,15 @@
           <h1>Login</h1>
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="errorMessage">
+        <ion-col>
+          <p>{{errorMessage}}</p>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col>
           <div class="username">
-            <ion-input mode="ios" type="text" clearInput placeholder="Username" formControlName="user_email">
+            <ion-input mode="ios" type="text" clearInput placeholder="Username" formControlName="email">
             </ion-input>
           </div>
         </ion-col>
@@ -23,7 +28,7 @@
       <ion-row>
         <ion-col>
           <div class="password">
-            <ion-input mode="ios" type="password" clearInput placeholder="Password" formControlName="user_password">
+            <ion-input mode="ios" type="password" clearInput placeholder="Password" formControlName="password">
             </ion-input>
           </div>
           <ion-text class="forget-password">forgot your pasword?</ion-text>

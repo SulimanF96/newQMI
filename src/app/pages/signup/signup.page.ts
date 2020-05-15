@@ -1,5 +1,8 @@
+import { AuthService } from './../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -8,18 +11,25 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SignupPage implements OnInit {
 
   public credentials: FormGroup;
+  public errorMessage: string;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.credentials = new FormGroup({
-      user_email: new FormControl('', Validators.required),
-      user_password: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
     });
   }
 
   signUp() {
-    console.log(this.credentials.value);
+    this.authService.createUser(this.credentials.value).then( user => {
+      console.log(user);
+      this.router.navigate(['tabs/login']);
+    }).catch( error => {
+      console.log(error);
+      this.errorMessage = error.message;
+    })
   }
 
 }
