@@ -1,3 +1,5 @@
+import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
+import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,8 +15,8 @@ import { SettingsPage } from './settings.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SettingsPageRoutingModule
+    SettingsPageRoutingModule,
   ],
-  declarations: [SettingsPage]
+  declarations: [SettingsPage, ThemeSwitcherComponent, LanguageSwitcherComponent]
 })
 export class SettingsPageModule {}

@@ -9,16 +9,18 @@
   <ion-grid>
     <ion-row>
       <ion-card>
-        <ion-card-content (click)="presentActionSheetForLanguage()">
+        <ion-card-content (click)="openLanguageSwitcherDialog()">
           <ion-text>Language</ion-text>
-          <ion-icon size="large" name="arrow-forward"></ion-icon>
+          <ion-text class="language">{{language}}</ion-text>
+          <app-language-switcher (lang)="language = $event"></app-language-switcher>
         </ion-card-content>
       </ion-card>
     </ion-row>
     <ion-row>
       <ion-card>
-        <ion-card-content (click)="presentActionSheetForChangingTheme()">
+        <ion-card-content (click)="openThemeSwitcherDialog()">
           <ion-text>Theme</ion-text>
+          <app-theme-switcher (color)="color = $event"></app-theme-switcher>
           <div class="color" [style.background]="color"></div>
         </ion-card-content>
       </ion-card>
