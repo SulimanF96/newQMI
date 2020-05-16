@@ -1,3 +1,4 @@
+import { TranslationService } from './../../../shared/services/translation.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
 
@@ -9,9 +10,8 @@ import { ActionSheetController } from '@ionic/angular';
 export class LanguageSwitcherComponent implements OnInit {
 
   @Output() lang = new EventEmitter();
-  private language = 'english';
 
-  constructor(private actionSheetController: ActionSheetController) { }
+  constructor(private actionSheetController: ActionSheetController, private translationService: TranslationService) { }
 
   ngOnInit() { }
 
@@ -22,13 +22,13 @@ export class LanguageSwitcherComponent implements OnInit {
       buttons: [{
         text: 'Arabic',
         handler: () => {
-          this.language = 'ar';
+          this.translationService.switchLanguage('ar');
           this.lang.emit('ar');
         }
       }, {
         text: 'English',
         handler: () => {
-          this.language = 'en';
+          this.translationService.switchLanguage('en');
           this.lang.emit('en');
         }
       }, {

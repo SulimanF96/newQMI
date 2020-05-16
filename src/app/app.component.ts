@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private angularFireAuth: AngularFireAuth,
-    private userProfileService: UserProfileService
+    private userProfileService: UserProfileService,
+    private translate: TranslateService
   ) {
     this.initializeApp();
   }
@@ -29,6 +31,7 @@ export class AppComponent {
       // this.statusBar.backgroundColorByName('black');
       // this.statusBar.styleLightContent();
       this.splashScreen.hide();
+      this.translate.setDefaultLang('en');
       this.angularFireAuth.authState.subscribe(user => {
         if (user) {
           this.userProfileService.getUserProfile(user.uid).then(userProfile => {

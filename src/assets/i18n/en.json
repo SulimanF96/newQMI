@@ -1,0 +1,14 @@
+{
+    "HOME" : {
+        "HOME": "Home",
+        "WELCOME": "Welcome",
+        "WELCOME_MESSAGE": "to quick medication information were you can browse for medications information quickly",
+        "SEARCH_BY_IMAGE": "Search by image",
+        "SEARCH_BY_BARCODE": "Search by barcode",
+        "SEARCH_MANUALLY": "Search Manually",
+        "LOGIN": "Log In",
+        "HISTORY": "Search History",
+        "ADMINISTRATION": "Administration"
+    }
+
+}

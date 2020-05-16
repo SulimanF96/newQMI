@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -12,13 +13,15 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule
   ],
   exports: [
     FormsModule,
     ReactiveFormsModule,
     SearchByImageComponent,
     SearchByBarcodeComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    TranslateModule
   ],
   entryComponents: []
 })
