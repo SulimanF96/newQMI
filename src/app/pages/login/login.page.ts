@@ -3,6 +3,7 @@ import { AuthService } from './../../shared/services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
   public credentials: FormGroup;
   public errorMessage: string;
 
-  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService) { }
+  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController) { }
 
   ngOnInit() {
     this.credentials = new FormGroup({
@@ -39,11 +40,22 @@ export class LoginPage implements OnInit {
     this.userProfileService.getUserProfile(userID).then(userProfile => {
       userProfile.forEach((userProfile) => {
         console.log(userProfile.val());
+        this.presentToast(userProfile.val().username);
         this.userProfileService.userProfile$.next(userProfile.val());
       });
     }).catch(error => {
       console.log(error);
     });
+  }
+
+  async presentToast(username: string) {
+    const toast = await this.toast.create({
+      position: 'top',
+      cssClass: 'toast',
+      message: `${username} was logged in successfully.`,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }
