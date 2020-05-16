@@ -59,6 +59,14 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
+      <ion-col *ngIf="userIsLoggedIn && userProfile && !userProfile?.isAdmin" size="6">
+        <ion-card class="ion-text-center">
+          <ion-card-content>
+            <ion-icon size="large" name="file-tray-outline"></ion-icon>
+            <h1>History</h1>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
