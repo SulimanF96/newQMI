@@ -1,0 +1,27 @@
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  color: white;
+}
+
+ion-content {
+  --background: var(--ion-color-primary);
+}
+
+ion-card {
+  width: 91vw;
+  color: white;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: var(--ion-color-primary-tint);
+  //   background-color: #6370ff;
+}
+
+ion-text {
+  font-size: 23px;
+  letter-spacing: 1px;
+}
+
+ion-icon {
+  float: right;
+}

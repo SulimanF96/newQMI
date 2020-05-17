@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { UserProfile } from './../../models/user-profile';
+import { UserProfileService } from './../../shared/services/user-profile.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from './../../shared/services/auth.service';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-more',
@@ -7,9 +13,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MorePage implements OnInit {
 
-  constructor() { }
+  public userIsLoggedIn = false;
+  public userProfile: UserProfile;
+  private username: string;
+
+  constructor(private angularFireAuth: AngularFireAuth, private userProfileService: UserProfileService, private authService: AuthService, private router: Router, private toast: ToastController) { }
 
   ngOnInit() {
+    this.angularFireAuth.authState.subscribe(user => {
+      if (user) {
+        this.userIsLoggedIn = true;
+        this.username = user.email.substring(0, user.email.indexOf('@'));
+      } else {
+        this.userIsLoggedIn = false;
+      }
+    });
+
+    this.userProfileService.userProfile$.subscribe(userProfile => {
+      this.userProfile = userProfile;
+    });
+  }
+
+  logout() {
+    this.authService.logout().then(res => {
+      console.log('user was logged out', res);
+      this.userProfileService.userProfile$.next(null);
+      this.presentToast(this.username);
+      this.router.navigate(['tabs/home']);
+    }).catch(error => {
+      console.log('user was not logged out', error);
+    });
+  }
+
+  async presentToast(username: string) {
+    const toast = await this.toast.create({
+      position: 'top',
+      cssClass: 'toast',
+      message: `${username} was logged out successfully.`,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

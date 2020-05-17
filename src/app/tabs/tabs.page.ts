@@ -2,6 +2,7 @@ import { SearchByBarcodeComponent } from './../shared/components/search-by-barco
 import { SearchByImageComponent } from './../shared/components/search-by-image/search-by-image.component';
 import { Component, ViewChild } from '@angular/core';
 import { IonFab } from '@ionic/angular';
+import { IonTabs } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -13,6 +14,10 @@ export class TabsPage {
   @ViewChild(SearchByBarcodeComponent, { static: true }) searchBybarcodeComponent: SearchByBarcodeComponent;
   @ViewChild(SearchByImageComponent, { static: true }) searchByImageComponent: SearchByImageComponent;
   @ViewChild(IonFab, { static: true }) ionFab: IonFab;
+  @ViewChild(IonTabs, { static: true }) ionTab: IonTabs;
+
+  public selectedTab = 'home';
+  
   constructor() { }
 
   openImageSearchDialog() {
@@ -23,8 +28,8 @@ export class TabsPage {
     this.searchBybarcodeComponent.confirmOpeningCameraForBarcode();
   }
 
-  handleOutsideClick() {
-    this.ionFab.close();
+  getSelectedTab() {
+    this.selectedTab = this.ionTab.getSelected();
   }
 
 }

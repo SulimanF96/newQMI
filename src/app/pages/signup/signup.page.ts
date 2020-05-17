@@ -15,6 +15,7 @@ export class SignupPage implements OnInit {
 
   public credentials: FormGroup;
   public errorMessage: string;
+  public loading = false;
 
   constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController) { }
 
@@ -25,15 +26,29 @@ export class SignupPage implements OnInit {
     });
   }
 
+  ionViewDidLeave() {
+    this.credentials.reset();
+    this.errorMessage = '';
+  }
+
   signUp() {
+    this.loading = true;
     this.authService.createUser(this.credentials.value).then(user => {
       console.log(user);
       this.createUserProfile(user.user.uid, user.user.email);
       this.presentToast(user.user.email.substring(0, user.user.email.indexOf('@')));
+      this.loading = false;
+      this.credentials.reset();
       this.router.navigate(['tabs/home']);
     }).catch(error => {
       console.log(error);
+      this.loading = false;
       this.errorMessage = error.message;
+      if (this.errorMessage.includes('email')) {
+        this.credentials.reset();
+      } else {
+        this.credentials.get('password').reset();
+      }
     });
   }
 

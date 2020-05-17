@@ -1,9 +1,61 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>more</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <ion-buttons routerLink="/tabs/home" slot="start">
+    <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+  </ion-buttons>
+  <h1 class="ion-text-center">More</h1>
+</ion-toolbar>
 
 <ion-content>
+
+  <ion-grid>
+    <ion-row *ngIf="!userIsLoggedIn">
+      <ion-card>
+        <ion-card-content routerLink="/tabs/login">
+          <ion-text>Login</ion-text>
+          <ion-icon size="large" name="log-in-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row *ngIf="userIsLoggedIn && userProfile?.isAdmin">
+      <ion-card>
+        <ion-card-content>
+          <ion-text>Administartion</ion-text>
+          <ion-icon size="large" name="person-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row *ngIf="userIsLoggedIn && userProfile && !userProfile?.isAdmin">
+      <ion-card>
+        <ion-card-content>
+          <ion-text>Search History</ion-text>
+          <ion-icon size="large" name="file-tray-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row *ngIf="userIsLoggedIn && userProfile && !userProfile?.isAdmin">
+      <ion-card>
+        <ion-card-content>
+          <ion-text>Favorites</ion-text>
+          <ion-icon size="large" name="star-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row>
+      <ion-card>
+        <ion-card-content routerLink="/tabs/settings">
+          <ion-text>Settings</ion-text>
+          <ion-icon size="large" name="settings-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+    <ion-row *ngIf="userIsLoggedIn">
+      <ion-card>
+        <ion-card-content (click)="logout()">
+          <ion-text>Logout</ion-text>
+          <ion-icon size="large" name="log-out-outline"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

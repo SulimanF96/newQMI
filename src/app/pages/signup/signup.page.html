@@ -1,6 +1,6 @@
 <ion-toolbar>
   <ion-buttons routerLink="/tabs/login" slot="start">
-    <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+    <ion-icon size="large" name="chevron-back-outline"></ion-icon>
   </ion-buttons>
 </ion-toolbar>
 
@@ -36,7 +36,10 @@
       <ion-row>
         <ion-col>
           <div class="signup-submit">
-            <ion-button [disabled]="!credentials.valid" type="submit" class="signup-button">Sign Up</ion-button>
+            <ion-button [disabled]="!credentials.valid" type="submit" class="signup-button">
+              <ng-container *ngIf="!loading">Sign Up</ng-container>   
+              <ion-spinner *ngIf="loading" name="dots"></ion-spinner>
+            </ion-button>
           </div>
         </ion-col>
       </ion-row>

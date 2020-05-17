@@ -14,6 +14,7 @@ export class LoginPage implements OnInit {
 
   public credentials: FormGroup;
   public errorMessage: string;
+  public loading = false;
 
   constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController) { }
 
@@ -24,15 +25,29 @@ export class LoginPage implements OnInit {
     });
   }
 
+  ionViewDidLeave() {
+    this.credentials.reset();
+    this.errorMessage = '';
+  }
+
   login() {
     console.log(this.credentials.value);
+    this.loading = true;
     this.authService.login(this.credentials.value).then(user => {
       this.getUserProfile(user.user.uid);
       this.credentials.reset();
+      this.errorMessage = '';
+      this.loading = false;
       this.router.navigate(['tabs/home']);
     }).catch(error => {
       console.log(error);
+      this.loading = false;
       this.errorMessage = error.message;
+      if (this.errorMessage.includes('email')) {
+        this.credentials.reset();
+      } else {
+        this.credentials.get('password').reset();
+      }
     });
   }
 

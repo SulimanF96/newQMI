@@ -1,6 +1,6 @@
 <ion-toolbar>
-  <ion-buttons routerLink="/tabs/home" slot="start">
-    <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+  <ion-buttons routerLink="/tabs/more" slot="start">
+    <ion-icon size="large" name="chevron-back-outline"></ion-icon>
   </ion-buttons>
   <h1 class="ion-text-center">Settings</h1>
 </ion-toolbar>
@@ -30,14 +30,6 @@
         <ion-card-content routerLink="/user-guide">
           <ion-text>User Guide</ion-text>
           <ion-icon size="large" name="help-outline"></ion-icon>
-        </ion-card-content>
-      </ion-card>
-    </ion-row>
-    <ion-row *ngIf="userIsLoggedIn">
-      <ion-card>
-        <ion-card-content (click)="logout()">
-          <ion-text>Logout</ion-text>
-          <ion-icon size="large" name="log-out-outline"></ion-icon>
         </ion-card-content>
       </ion-card>
     </ion-row>
