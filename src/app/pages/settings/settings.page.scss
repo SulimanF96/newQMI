@@ -19,19 +19,34 @@ ion-card {
 
 ion-text {
   font-size: 23px;
+}
+
+.ion-text-english {
   letter-spacing: 1px;
 }
 
-ion-text.language{
+ion-text.language-english {
   float: right;
 }
 
-ion-icon {
+ion-text.language-arabic {
+  float: left;
+}
+
+.ion-icon-english {
   float: right;
 }
 
-ion-toggle {
+.ion-icon-arabic {
+  float: left;
+}
+
+.ion-toggle-english {
   float: right;
+}
+
+.ion-toggle-arabic {
+  float: left;
 }
 
 .color {
@@ -39,8 +54,15 @@ ion-toggle {
   width: 5vw;
   display: inline-block;
   height: 3vh;
-  float: right;
   border-radius: 105x;
   border-radius: 70%;
   margin-top: 5px;
+}
+
+.color-english {
+  float: right;
+}
+
+.color-arabic {
+  float: left;
 }

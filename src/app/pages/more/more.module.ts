@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { MorePage } from './more.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     MorePageRoutingModule
   ],
   declarations: [MorePage]

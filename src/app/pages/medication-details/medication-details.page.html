@@ -2,7 +2,7 @@
   <ion-buttons routerLink="/tabs/search-manually" slot="start">
     <ion-icon size="large" name="chevron-back-outline"></ion-icon>
   </ion-buttons>
-  <h1 class="ion-text-center">Medication Details</h1>
+  <h1 class="ion-text-center">{{ 'MEDICATION_DETAILS.MEDICATION_DETAILS' | translate}}</h1>
   <ion-buttons slot="end">
     <ion-icon size="large" name="download-outline"></ion-icon>
   </ion-buttons>
@@ -10,59 +10,55 @@
 
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="chevron-down-circle-outline"
-      pullingText="Pull to refresh"
-      refreshingSpinner="circles"
-      refreshingText="Refreshing..."
-    >
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
 
   <!-- skeleton Text -->
   <ion-grid *ngIf="dataStatus == 'loading'">
     <ion-row>
-      <ion-col class="image-col"
-        ><ion-skeleton-text class="image-skeleton" animated></ion-skeleton-text
-      ></ion-col>
+      <ion-col class="image-col">
+        <ion-skeleton-text class="image-skeleton" animated></ion-skeleton-text>
+      </ion-col>
       <ion-col>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">Brand name</span>
-            <span class="attribute-value"
-              ><ion-skeleton-text animated></ion-skeleton-text
-            ></span>
+            <span class="attribute-name">{{ 'MEDICATION_DETAILS.BRAND_NAME' | translate}}</span>
+            <span class="attribute-value">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">Active Component</span>
-            <span class="attribute-value"
-              ><ion-skeleton-text animated></ion-skeleton-text
-            ></span>
+            <span class="attribute-name">{{ 'MEDICATION_DETAILS.ACTIVE_COMPONENT' | translate}}</span>
+            <span class="attribute-value">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">Price</span>
-            <span class="attribute-value"
-              ><ion-skeleton-text animated></ion-skeleton-text
-            ></span>
+            <span class="attribute-name">{{ 'MEDICATION_DETAILS.PRICE' | translate}}</span>
+            <span class="attribute-value">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </span>
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Alternative Medication</span>
-        <span class="attribute-value"
-          ><ion-skeleton-text animated></ion-skeleton-text
-        ></span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.ALTERNATIVE_MEDICATION' | translate}}</span>
+        <span class="attribute-value">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </span>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Usage</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.USAGE' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -72,7 +68,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Contradictions</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.CONTRADICTIONS' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -82,7 +78,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Dosage</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.DOSAGE' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -92,7 +88,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Side Effects</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.SIDE_EFFECTS' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -102,7 +98,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Storage</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.STORAGE' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -112,34 +108,12 @@
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Components</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.COMPONENTS' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
         </p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">Manufacturer Name</span>
-        <span class="attribute-value"
-          ><ion-skeleton-text animated></ion-skeleton-text
-        ></span>
-      </ion-col>
-      <ion-col class="details">
-        <span class="attribute-name">Telephone Number</span>
-        <span class="attribute-value"
-          ><ion-skeleton-text animated></ion-skeleton-text
-        ></span>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">Location</span>
-        <span class="attribute-value"
-          ><ion-skeleton-text animated></ion-skeleton-text
-        ></span>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -150,21 +124,19 @@
       <ion-col>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">Brand name</span>
+            <span class="attribute-name">{{ 'MEDICATION_DETAILS.BRAND_NAME' | translate}}</span>
             <span class="attribute-value">{{medicationDetails?.name}}</span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">Active Component</span>
-            <span class="attribute-value"
-              >{{medicationDetails?.ActiveComponent}}</span
-            >
+            <span class="attribute-name">{{ 'MEDICATION_DETAILS.ACTIVE_COMPONENT' | translate}}</span>
+            <span class="attribute-value">{{medicationDetails?.ActiveComponent}}</span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">Price</span>
+            <span class="attribute-name">{{ 'MEDICATION_DETAILS.PRICE' | translate}}</span>
             <span class="attribute-value">{{medicationDetails?.Price}}</span>
           </ion-col>
         </ion-row>
@@ -172,43 +144,43 @@
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Alternative Medication</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.ALTERNATIVE_MEDICATION' | translate}}</span>
         <span class="attribute-value">{{medicationDetails?.Alternative}}</span>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Usage</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.USAGE' | translate}}</span>
         <p>{{medicationDetails?.Description}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Contradictions</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.CONTRADICTIONS' | translate}}</span>
         <p>{{medicationDetails?.Contradiction}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Dosage</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.DOSAGE' | translate}}</span>
         <p>{{medicationDetails?.Dosage}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Side Effects</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.SIDE_EFFECTS' | translate}}</span>
         <p>{{medicationDetails?.SideEffect}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Storage</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.STORAGE' | translate}}</span>
         <p>{{medicationDetails?.Storage}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="details">
-        <span class="attribute-name">Components</span>
+        <span class="attribute-name">{{ 'MEDICATION_DETAILS.COMPONENTS' | translate}}</span>
         <p>{{medicationDetails?.ingredients}}</p>
       </ion-col>
     </ion-row>
@@ -217,23 +189,19 @@
   <ion-grid *ngIf="dataStatus == 'not found'" class="error-message-container">
     <ion-row>
       <ion-col>
-        <img
-          class="error-icon"
-          src="../../../assets/error-icon.png"
-          alt="error icon"
-        />
+        <img class="error-icon" src="../../../assets/error-icon.png" alt="error icon" />
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <h1 class="error-message">Sorry {{medicationName}} was not found</h1>
+        <h1 class="error-message">{{ 'MEDICATION_DETAILS.SORRY' | translate}} {{medicationName}}
+          {{ 'MEDICATION_DETAILS.NOT_FOUND' | translate}}</h1>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button mode="ios" (click)="searchAgain()" class="try-again-button"
-          >Try again</ion-button
-        >
+        <ion-button mode="ios" (click)="searchAgain()" class="try-again-button">
+          {{ 'MEDICATION_DETAILS.TRY_AGAIN' | translate}}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

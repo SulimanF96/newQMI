@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { TranslationService } from './../../shared/services/translation.service';
 
 @Component({
   selector: 'app-more',
@@ -16,8 +17,9 @@ export class MorePage implements OnInit {
   public userIsLoggedIn = false;
   public userProfile: UserProfile;
   private username: string;
+  public language = 'en';
 
-  constructor(private angularFireAuth: AngularFireAuth, private userProfileService: UserProfileService, private authService: AuthService, private router: Router, private toast: ToastController) { }
+  constructor(private angularFireAuth: AngularFireAuth, private userProfileService: UserProfileService, private authService: AuthService, private router: Router, private toast: ToastController, private translationService: TranslationService) { }
 
   ngOnInit() {
     this.angularFireAuth.authState.subscribe(user => {
@@ -31,6 +33,10 @@ export class MorePage implements OnInit {
 
     this.userProfileService.userProfile$.subscribe(userProfile => {
       this.userProfile = userProfile;
+    });
+
+    this.translationService.language$.subscribe( language => {
+      this.language = language;
     });
   }
 

@@ -2,7 +2,7 @@
   <ion-buttons routerLink="/tabs/more" slot="start">
     <ion-icon size="large" name="chevron-back-outline"></ion-icon>
   </ion-buttons>
-  <h1 class="ion-text-center">Settings</h1>
+  <h1 class="ion-text-center">{{ 'SETTINGS.SETTINGS' | translate}}</h1>
 </ion-toolbar>
 
 <ion-content>
@@ -10,8 +10,10 @@
     <ion-row>
       <ion-card>
         <ion-card-content (click)="openLanguageSwitcherDialog()">
-          <ion-text>Language</ion-text>
-          <ion-text class="language">{{language}}</ion-text>
+          <ion-text [ngClass]="{ 'ion-text-arabic': language == 'ar', 'ion-text-english': language == 'en'}">
+            {{ 'SETTINGS.LANGUAGE' | translate}}</ion-text>
+          <ion-text [ngClass]="{ 'language-arabic': language == 'ar', 'language-english': language == 'en'}"
+            class="language">{{language}}</ion-text>
           <app-language-switcher (lang)="language = $event"></app-language-switcher>
         </ion-card-content>
       </ion-card>
@@ -19,17 +21,21 @@
     <ion-row>
       <ion-card>
         <ion-card-content (click)="openThemeSwitcherDialog()">
-          <ion-text>Theme</ion-text>
+          <ion-text [ngClass]="{ 'ion-text-arabic': language == 'ar', 'ion-text-english': language == 'en'}">
+            {{ 'SETTINGS.THEME' | translate}}</ion-text>
           <app-theme-switcher (color)="color = $event"></app-theme-switcher>
-          <div class="color" [style.background]="color"></div>
+          <div [ngClass]="{ 'color-arabic': language == 'ar', 'color-english': language == 'en'}" class="color"
+            [style.background]="color"></div>
         </ion-card-content>
       </ion-card>
     </ion-row>
     <ion-row>
       <ion-card>
         <ion-card-content routerLink="/user-guide">
-          <ion-text>User Guide</ion-text>
-          <ion-icon size="large" name="help-outline"></ion-icon>
+          <ion-text [ngClass]="{ 'ion-text-arabic': language == 'ar', 'ion-text-english': language == 'en'}">
+            {{ 'SETTINGS.USER_GUIDE' | translate}}</ion-text>
+          <ion-icon [ngClass]="{ 'ion-icon-arabic': language == 'ar', 'ion-icon-english': language == 'en'}"
+            size="large" name="help-outline"></ion-icon>
         </ion-card-content>
       </ion-card>
     </ion-row>

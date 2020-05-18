@@ -8,6 +8,9 @@
 //     top: 0px;
 //     left: 0px;
 // }
+ion-toolbar-arabic{
+  letter-spacing: 0;
+}
 
 ion-grid {
   margin-top: 131px;
@@ -49,5 +52,13 @@ ion-card-content {
     font-size: 38px;
     letter-spacing: 2px;
     color: var(--ion-color-primary);
+  }
+}
+
+.welcome-arabic {
+  margin-right: 27px;
+  letter-spacing: 0;
+  span {
+    letter-spacing: 0;
   }
 }

@@ -1,3 +1,4 @@
+import { TranslationService } from './../../shared/services/translation.service';
 import { UserProfile } from './../../models/user-profile';
 import { UserProfileService } from './../../shared/services/user-profile.service';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -16,8 +17,9 @@ export class HomePage implements OnInit {
   @ViewChild(SearchByImageComponent, { static: true }) searchByImageComponent: SearchByImageComponent;
   public userIsLoggedIn = false;
   public userProfile: UserProfile;
+  public language = 'en';
 
-  constructor(private angularFireAuth: AngularFireAuth, private userProfileService: UserProfileService) { }
+  constructor(private angularFireAuth: AngularFireAuth, private userProfileService: UserProfileService, private translationService: TranslationService) { }
 
   ngOnInit() {
     this.angularFireAuth.authState.subscribe(user => {
@@ -31,6 +33,10 @@ export class HomePage implements OnInit {
     this.userProfileService.userProfile$.subscribe(userProfile => {
       console.log(userProfile);
       this.userProfile = userProfile;
+    });
+
+    this.translationService.language$.subscribe( language => {
+      this.language = language;
     });
   }
 

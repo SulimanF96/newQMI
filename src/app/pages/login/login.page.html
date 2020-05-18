@@ -9,7 +9,7 @@
     <form [formGroup]="credentials" (ngSubmit)="login()">
       <ion-row>
         <ion-col>
-          <h1>Login</h1>
+          <h1>{{ 'LOGIN.LOGIN' | translate}}</h1>
         </ion-col>
       </ion-row>
       <ion-row *ngIf="errorMessage">
@@ -31,14 +31,14 @@
             <ion-input mode="ios" type="password" clearInput placeholder="Password" formControlName="password">
             </ion-input>
           </div>
-          <ion-text class="forget-password">forgot your pasword?</ion-text>
+          <ion-text class="forget-password">{{ 'LOGIN.FORGOT_PASSWORD' | translate}}</ion-text>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <div class="login-submit">
             <ion-button [disabled]="!credentials.valid" type="submit" class="login-button">
-              <ng-container *ngIf="!loading">Login</ng-container>   
+              <ng-container *ngIf="!loading">{{ 'LOGIN.LOGIN' | translate}}</ng-container>
               <ion-spinner *ngIf="loading" name="dots"></ion-spinner>
             </ion-button>
           </div>
@@ -46,7 +46,8 @@
       </ion-row>
       <ion-row>
         <ion-col class="ion-text-center">
-          <ion-text class="sign-up">You Don't have an account ? <span routerLink="/tabs/signup">Sign Up</span>
+          <ion-text class="sign-up">{{ 'LOGIN.SIGNUP_MESSAGE' | translate}}<span
+              routerLink="/tabs/signup">{{ 'SIGNUP' | translate}}</span>
           </ion-text>
         </ion-col>
       </ion-row>

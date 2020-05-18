@@ -2,12 +2,66 @@
     "HOME" : {
         "HOME": "الرئيسية",
         "WELCOME": "مرحبا",
-        "WELCOME_MESSAGE": "يمكنكم خلال هذا البرنامج البحث بشكل سريع عن معلوماتك الدوائية",
-        "SEARCH_BY_IMAGE": "البحث عن طريق التصوير",
-        "SEARCH_BY_BARCODE": "البحث عن طريق الباركود",
-        "SEARCH_MANUALLY": "بحث يدوي",
+        "WELCOME_MESSAGE": "يمكنكم خلال هذا البرنامج البحث بشكل سريع عن معلوماتك الدوائية"
+    },
+    "LOGIN": {
         "LOGIN": "تسجيل الدخول",
-        "HISTORY": "تاريخ البحث",
-        "ADMINISTRATION": "الادارة"
-    }
+        "FORGOT_PASSWORD": "هل نسيت كلمة السر ؟",
+        "SIGNUP_MESSAGE": "ليس لديك حساب ؟"
+    },
+    "MEDICATION_DETAILS": {
+        "MEDICATION_DETAILS": "تفاصيل الدواء",
+        "BRAND_NAME": "الاسم التجاري",
+        "ACTIVE_COMPONENT": "العنصر الفعال",
+        "PRICE": "السعر",
+        "ALTERNATIVE_MEDICATION": "الدواء البديل",
+        "USAGE": "الاستخدام",
+        "CONTRADICTIONS": "التعارضات",
+        "DOSAGE": "الجرعة",
+        "SIDE_EFFECTS": "الاثار الجانبية",
+        "STORAGE": "التخزين",
+        "COMPONENTS": "العناصر",
+        "SORRY": "نتأسف",
+        "NOT_FOUND": "لم يتم ايجاده",
+        "TRY_AGAIN": "حاول مره اخرى"
+    },
+    "MORE": {
+        "MORE": "المزيد",
+        "LOGOUT": "تسجيل خروج"
+    },
+    "ADMINISTARTION": {
+        "ADMINISTARTION": "الادارة"
+    },
+    "SEARCH_HISTORY": {
+        "SEARCH_HISTORY": "تاريخ البحث"
+    },
+    "FAVORITES": {
+        "FAVORITES": "المفضلة"
+    },
+    "SETTINGS": {
+        "SETTINGS": "الاعدادات",
+        "LANGUAGE": "اللغة",
+        "THEME": "الشكل",
+        "USER_GUIDE": "دليل المستخدم"
+    },
+    "SEARCH_MANUALLY": {
+        "SEARCH_MANUALLY": "البحث اليدوي",
+        "SEARCH": "ابحث"
+    },
+    "SEARCH_BY_BARCODE": {
+        "SEARCH_BY_BARCODE": "البحث بالباركود",
+        "BARCODE_AUTH_MESSAGE": "هل ترغب بفتح الكاميرا ؟",
+        "YES": "نعم",
+        "NO": "لا"
+    },
+    "SEARCH_BY_IMAGE": {
+        "SEARCH_BY_IMAGE": "البحث بالتصوير",
+        "IMAGE_SOURCE": "مصدر الصورة",
+        "USE_LIBRARY": "مكتبة الصور",
+        "CAPTURE_IMAGE": "التقط صوره",
+        "CANCEL": "تراجع"
+    },
+    "SIGNUP": "تسجيل حساب",
+    "USERNAME": "اسم السمتخدم",
+    "PASSWORD": "كلمة السر"
 }

@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { SettingsPage } from './settings.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     SettingsPageRoutingModule,
   ],
   declarations: [SettingsPage, ThemeSwitcherComponent, LanguageSwitcherComponent]

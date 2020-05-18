@@ -5,7 +5,7 @@
 <ion-content>
   <!-- <div class="box"></div> -->
 
-  <ion-text class="welcome">
+  <ion-text class="welcome" [ngClass]="{ 'welcome-arabic': language == 'ar'}">
     <span>{{'HOME.WELCOME' | translate}},</span> <br />
     {{'HOME.WELCOME_MESSAGE' | translate}}
   </ion-text>
@@ -17,7 +17,7 @@
           <ion-card (click)="openImageSearchDialog()" class="ion-text-center">
             <ion-card-content>
               <ion-icon size="large" name="camera-outline"></ion-icon>
-              <h1>{{'HOME.SEARCH_BY_IMAGE' | translate}}</h1>
+              <h1>{{'SEARCH_BY_IMAGE.SEARCH_BY_IMAGE' | translate}}</h1>
               <app-search-by-image></app-search-by-image>
             </ion-card-content>
           </ion-card>
@@ -27,7 +27,7 @@
         <ion-card (click)="openBarcodeScannerDialog()" class="ion-text-center">
           <ion-card-content>
             <ion-icon size="large" name="qr-code-outline"></ion-icon>
-            <h1>{{'HOME.SEARCH_BY_BARCODE' | translate}}</h1>
+            <h1>{{'SEARCH_BY_BARCODE.SEARCH_BY_BARCODE' | translate}}</h1>
             <app-search-by-barcode></app-search-by-barcode>
           </ion-card-content>
         </ion-card>
@@ -37,8 +37,8 @@
       <ion-col size="6">
         <ion-card routerLink="/tabs/search-manually" class="ion-text-center">
           <ion-card-content>
-            <ion-icon size="large" name="text-outline"></ion-icon>
-            <h1>{{'HOME.SEARCH_MANUALLY' | translate}}</h1>
+            <ion-icon size="large" name="search-outline"></ion-icon>
+            <h1>{{'SEARCH_MANUALLY.SEARCH_MANUALLY' | translate}}</h1>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -46,7 +46,7 @@
         <ion-card routerLink="/tabs/login" class="ion-text-center">
           <ion-card-content>
             <ion-icon size="large" name="log-in-outline"></ion-icon>
-            <h1>{{'HOME.LOGIN' | translate}}</h1>
+            <h1>{{'LOGIN.LOGIN' | translate}}</h1>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -54,7 +54,7 @@
         <ion-card class="ion-text-center">
           <ion-card-content>
             <ion-icon size="large" name="person-outline"></ion-icon>
-            <h1>{{'HOME.ADMINISTRATION' | translate}}</h1>
+            <h1>{{'ADMINISTARTION.ADMINISTARTION' | translate}}</h1>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -62,7 +62,7 @@
         <ion-card class="ion-text-center">
           <ion-card-content>
             <ion-icon size="large" name="file-tray-outline"></ion-icon>
-            <h1>{{'HOME.HISTORY' | translate}}</h1>
+            <h1>{{'SEARCH_HISTORY.SEARCH_HISTORY' | translate}}</h1>
           </ion-card-content>
         </ion-card>
       </ion-col>

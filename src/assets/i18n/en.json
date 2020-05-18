@@ -2,13 +2,66 @@
     "HOME" : {
         "HOME": "Home",
         "WELCOME": "Welcome",
-        "WELCOME_MESSAGE": "to quick medication information were you can browse for medications information quickly",
-        "SEARCH_BY_IMAGE": "Search by image",
-        "SEARCH_BY_BARCODE": "Search by barcode",
+        "WELCOME_MESSAGE": "to quick medication information were you can browse for medications information quickly"
+    },
+    "LOGIN": {
+        "LOGIN": "Login",
+        "FORGOT_PASSWORD": "forgot your pasword?",
+        "SIGNUP_MESSAGE": "You Don't have an account ?"
+    },
+    "MEDICATION_DETAILS": {
+        "MEDICATION_DETAILS": "Medication Details",
+        "BRAND_NAME": "Brand name",
+        "ACTIVE_COMPONENT": "Active Component",
+        "PRICE": "Price",
+        "ALTERNATIVE_MEDICATION": "Alternative Medication",
+        "USAGE": "Usage",
+        "CONTRADICTIONS": "Contradictions",
+        "DOSAGE": "Dosage",
+        "SIDE_EFFECTS": "Side Effects",
+        "STORAGE": "Storage",
+        "COMPONENTS": "Components",
+        "SORRY": "Sorry",
+        "NOT_FOUND": "was not found",
+        "TRY_AGAIN": "Try Again"
+    },
+    "MORE": {
+        "MORE": "More",
+        "LOGOUT": "Logout"
+    },
+    "ADMINISTARTION": {
+        "ADMINISTARTION": "Administartion"
+    },
+    "SEARCH_HISTORY": {
+        "SEARCH_HISTORY": "Search History"
+    },
+    "FAVORITES": {
+        "FAVORITES": "Favorites"
+    },
+    "SETTINGS": {
+        "SETTINGS": "Settings",
+        "LANGUAGE": "Language",
+        "THEME": "Theme",
+        "USER_GUIDE": "User Guide"
+    },
+    "SEARCH_MANUALLY": {
         "SEARCH_MANUALLY": "Search Manually",
-        "LOGIN": "Log In",
-        "HISTORY": "Search History",
-        "ADMINISTRATION": "Administration"
-    }
-
+        "SEARCH": "Search"
+    },
+    "SEARCH_BY_BARCODE": {
+        "SEARCH_BY_BARCODE": "Search by barcode",
+        "BARCODE_AUTH_MESSAGE": "Do you want to open your camera ?",
+        "YES": "Yes",
+        "NO": "No"
+    },
+    "SEARCH_BY_IMAGE": {
+        "SEARCH_BY_IMAGE": "Search by image",
+        "IMAGE_SOURCE": "Image source",
+        "USE_LIBRARY": "Use Library",
+        "CAPTURE_IMAGE": "Capture Image",
+        "CANCEL": "Cancel"
+    },
+    "SIGNUP": "Sign Up",
+    "USERNAME": "Username",
+    "PASSWORD": "Password"
 }

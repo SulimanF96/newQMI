@@ -9,7 +9,7 @@
     <form [formGroup]="credentials" (ngSubmit)="signUp()">
       <ion-row>
         <ion-col>
-          <h1>Sign Up</h1>
+          <h1>{{ 'SIGNUP' | translate}}</h1>
         </ion-col>
       </ion-row>
       <ion-row *ngIf="errorMessage">
@@ -37,7 +37,7 @@
         <ion-col>
           <div class="signup-submit">
             <ion-button [disabled]="!credentials.valid" type="submit" class="signup-button">
-              <ng-container *ngIf="!loading">Sign Up</ng-container>   
+              <ng-container *ngIf="!loading">{{ 'SIGNUP' | translate}}</ng-container>
               <ion-spinner *ngIf="loading" name="dots"></ion-spinner>
             </ion-button>
           </div>
