@@ -9,18 +9,18 @@
     <form [formGroup]="credentials" (ngSubmit)="login()">
       <ion-row>
         <ion-col>
-          <h1>{{ 'LOGIN.LOGIN' | translate}}</h1>
+          <h1 [ngClass]="{ 'rtl': language == 'ar'}">{{ 'LOGIN.LOGIN' | translate}}</h1>
         </ion-col>
       </ion-row>
       <ion-row *ngIf="errorMessage">
         <ion-col>
-          <p>{{errorMessage}}</p>
+          <p [ngClass]="{ 'rtl': language == 'ar'}">{{errorMessage}}</p>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <div class="username">
-            <ion-input mode="ios" type="text" clearInput placeholder="Username" formControlName="email">
+            <ion-input mode="ios" type="text" clearInput placeholder="{{'USERNAME' | translate}}" formControlName="email">
             </ion-input>
           </div>
         </ion-col>
@@ -28,10 +28,10 @@
       <ion-row>
         <ion-col>
           <div class="password">
-            <ion-input mode="ios" type="password" clearInput placeholder="Password" formControlName="password">
+            <ion-input mode="ios" type="password" clearInput placeholder="{{'PASSWORD' | translate}}" formControlName="password">
             </ion-input>
           </div>
-          <ion-text class="forget-password">{{ 'LOGIN.FORGOT_PASSWORD' | translate}}</ion-text>
+          <ion-text class="forget-password" [ngClass]="{ 'rtl': language == 'ar'}">{{ 'LOGIN.FORGOT_PASSWORD' | translate}}</ion-text>
         </ion-col>
       </ion-row>
       <ion-row>

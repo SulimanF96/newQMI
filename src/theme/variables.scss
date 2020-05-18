@@ -2,6 +2,11 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+:root[dir=rtl]{
+  --ion-font-family: "Tajawal Regular", "Helvetica", "Arial", sans-serif;
+  //  direction: rtl;
+
+}
 :root {
   // /** primary **/
   // // --ion-color-primary: #3880ff;

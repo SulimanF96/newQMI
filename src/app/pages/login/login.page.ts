@@ -1,3 +1,4 @@
+import { TranslationService } from './../../shared/services/translation.service';
 import { UserProfileService } from './../../shared/services/user-profile.service';
 import { AuthService } from './../../shared/services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -15,14 +16,18 @@ export class LoginPage implements OnInit {
   public credentials: FormGroup;
   public errorMessage: string;
   public loading = false;
+  public language = 'en';
 
-  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController) { }
+  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController, private translationService: TranslationService) { }
 
   ngOnInit() {
     this.credentials = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+    this.translationService.language$.subscribe( language => {
+      this.language = language;
+    })
   }
 
   ionViewDidLeave() {
