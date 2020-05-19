@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../../shared/services/theme.service';
 
 @Component({
@@ -11,16 +12,16 @@ export class ThemeSwitcherComponent implements OnInit {
 
   @Output() color = new EventEmitter();
 
-  constructor(private actionSheetController: ActionSheetController, private themeService: ThemeService,) { }
+  constructor(private actionSheetController: ActionSheetController, private themeService: ThemeService, private translateService: TranslateService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async presentActionSheetForChangingTheme() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Themes',
+      header: this.translateService.instant('SETTINGS.THEME'),
       mode: 'ios',
       buttons: [{
-        text: 'Tertiary',
+        text: this.translateService.instant('SETTINGS.TERTIARY'),
         cssClass: 'tertiary',
         handler: () => {
           this.themeService.changeTheme('tertiary-theme');
@@ -28,7 +29,7 @@ export class ThemeSwitcherComponent implements OnInit {
           this.color.emit('#5260ff');
         }
       }, {
-        text: 'Green',
+        text: this.translateService.instant('SETTINGS.GREEN'),
         cssClass: 'green',
         handler: () => {
           this.themeService.changeTheme('green-theme');
@@ -37,7 +38,7 @@ export class ThemeSwitcherComponent implements OnInit {
         }
       },
       {
-        text: 'Red',
+        text: this.translateService.instant('SETTINGS.RED'),
         cssClass: 'red',
         handler: () => {
           this.themeService.changeTheme('red-theme');
@@ -46,7 +47,7 @@ export class ThemeSwitcherComponent implements OnInit {
         }
       },
       {
-        text: 'Blue',
+        text: this.translateService.instant('SETTINGS.BLUE'),
         cssClass: 'blue',
         handler: () => {
           this.themeService.changeTheme('blue-theme');
@@ -55,7 +56,7 @@ export class ThemeSwitcherComponent implements OnInit {
         }
       },
       {
-        text: 'Dark',
+        text: this.translateService.instant('SETTINGS.DARK'),
         cssClass: 'dark',
         handler: () => {
           this.themeService.changeTheme('dark-theme');
@@ -63,7 +64,7 @@ export class ThemeSwitcherComponent implements OnInit {
           this.color.emit('#222428');
         }
       }, {
-        text: 'Cancel',
+        text: this.translateService.instant('CANCEL'),
         cssClass: 'red',
         role: 'cancel'
       }]

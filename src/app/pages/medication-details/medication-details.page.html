@@ -10,38 +10,41 @@
 
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
-      refreshingSpinner="circles" refreshingText="Refreshing...">
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="{{ 'REFRESH' | translate }}"
+      refreshingSpinner="circles" refreshingText="{{ 'REFRESHING' | translate }}">
     </ion-refresher-content>
   </ion-refresher>
 
   <!-- skeleton Text -->
   <ion-grid *ngIf="dataStatus == 'loading'">
     <ion-row>
-      <ion-col class="image-col">
+      <ion-col class="image-col" [ngClass]="{ 'rtl': language == 'ar'}">
         <ion-skeleton-text class="image-skeleton" animated></ion-skeleton-text>
       </ion-col>
       <ion-col>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">{{ 'MEDICATION_DETAILS.BRAND_NAME' | translate}}</span>
-            <span class="attribute-value">
+            <span class="attribute-name"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.BRAND_NAME' | translate}}</span>
+            <span class="attribute-value" [ngClass]="{ 'rtl': language == 'ar'}">
               <ion-skeleton-text animated></ion-skeleton-text>
             </span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">{{ 'MEDICATION_DETAILS.ACTIVE_COMPONENT' | translate}}</span>
-            <span class="attribute-value">
+            <span class="attribute-name"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.ACTIVE_COMPONENT' | translate}}</span>
+            <span class="attribute-value" [ngClass]="{ 'rtl': language == 'ar'}">
               <ion-skeleton-text animated></ion-skeleton-text>
             </span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">{{ 'MEDICATION_DETAILS.PRICE' | translate}}</span>
-            <span class="attribute-value">
+            <span class="attribute-name"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.PRICE' | translate}}</span>
+            <span class="attribute-value" [ngClass]="{ 'rtl': language == 'ar'}">
               <ion-skeleton-text animated></ion-skeleton-text>
             </span>
           </ion-col>
@@ -49,16 +52,18 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.ALTERNATIVE_MEDICATION' | translate}}</span>
-        <span class="attribute-value">
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.ALTERNATIVE_MEDICATION' | translate}}</span>
+        <span class="attribute-value" [ngClass]="{ 'rtl': language == 'ar'}">
           <ion-skeleton-text animated></ion-skeleton-text>
         </span>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.USAGE' | translate}}</span>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.USAGE' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -67,8 +72,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.CONTRADICTIONS' | translate}}</span>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.CONTRADICTIONS' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -77,8 +83,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.DOSAGE' | translate}}</span>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.DOSAGE' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -87,8 +94,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.SIDE_EFFECTS' | translate}}</span>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.SIDE_EFFECTS' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -97,8 +105,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.STORAGE' | translate}}</span>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.STORAGE' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -107,8 +116,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.COMPONENTS' | translate}}</span>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.COMPONENTS' | translate}}</span>
         <p>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated></ion-skeleton-text>
@@ -124,64 +134,83 @@
       <ion-col>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">{{ 'MEDICATION_DETAILS.BRAND_NAME' | translate}}</span>
-            <span class="attribute-value">{{medicationDetails?.name}}</span>
+            <span class="attribute-name"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.BRAND_NAME' | translate}}</span>
+            <span class="attribute-value"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ language == 'en' ? medicationDetails?.name : medicationDetails?.nameAR}}</span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">{{ 'MEDICATION_DETAILS.ACTIVE_COMPONENT' | translate}}</span>
-            <span class="attribute-value">{{medicationDetails?.ActiveComponent}}</span>
+            <span class="attribute-name"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.ACTIVE_COMPONENT' | translate}}</span>
+            <span class="attribute-value"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ language == 'en' ? medicationDetails?.ActiveComponent : medicationDetails?.ActiveComponentAR}}</span>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>
-            <span class="attribute-name">{{ 'MEDICATION_DETAILS.PRICE' | translate}}</span>
-            <span class="attribute-value">{{medicationDetails?.Price}}</span>
+            <span class="attribute-name"
+              [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.PRICE' | translate}}</span>
+            <span class="attribute-value" [ngClass]="{ 'rtl': language == 'ar'}">{{medicationDetails?.Price}}</span>
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.ALTERNATIVE_MEDICATION' | translate}}</span>
-        <span class="attribute-value">{{medicationDetails?.Alternative}}</span>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.ALTERNATIVE_MEDICATION' | translate}}</span>
+        <span class="attribute-value"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ language == 'en' ? medicationDetails?.Alternative : medicationDetails?.AlternativeAR}}</span>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.USAGE' | translate}}</span>
-        <p>{{medicationDetails?.Description}}</p>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.USAGE' | translate}}</span>
+        <p [ngClass]="{ 'rtl': language == 'ar'}">
+          {{ language == 'en' ? medicationDetails?.Description : medicationDetails?.DescriptionAR}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.CONTRADICTIONS' | translate}}</span>
-        <p>{{medicationDetails?.Contradiction}}</p>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.CONTRADICTIONS' | translate}}</span>
+        <p [ngClass]="{ 'rtl': language == 'ar'}">
+          {{ language == 'en' ? medicationDetails?.Contradiction : medicationDetails?.ContradictionAR}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.DOSAGE' | translate}}</span>
-        <p>{{medicationDetails?.Dosage}}</p>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.DOSAGE' | translate}}</span>
+        <p [ngClass]="{ 'rtl': language == 'ar'}">
+          {{ language == 'en' ? medicationDetails?.Dosage : medicationDetails?.DosageAR}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.SIDE_EFFECTS' | translate}}</span>
-        <p>{{medicationDetails?.SideEffect}}</p>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.SIDE_EFFECTS' | translate}}</span>
+        <p [ngClass]="{ 'rtl': language == 'ar'}">
+          {{ language == 'en' ? medicationDetails?.SideEffect : medicationDetails?.SideEffectAR}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.STORAGE' | translate}}</span>
-        <p>{{medicationDetails?.Storage}}</p>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.STORAGE' | translate}}</span>
+        <p [ngClass]="{ 'rtl': language == 'ar'}">
+          {{ language == 'en' ? medicationDetails?.Storage : medicationDetails?.StorageAR}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="details">
-        <span class="attribute-name">{{ 'MEDICATION_DETAILS.COMPONENTS' | translate}}</span>
-        <p>{{medicationDetails?.ingredients}}</p>
+      <ion-col class="details" [ngClass]="{ 'rtl': language == 'ar'}">
+        <span class="attribute-name"
+          [ngClass]="{ 'rtl': language == 'ar'}">{{ 'MEDICATION_DETAILS.COMPONENTS' | translate}}</span>
+        <p [ngClass]="{ 'rtl': language == 'ar'}">
+          {{ language == 'en' ? medicationDetails?.ingredients : medicationDetails?.ingredientsAR}}</p>
       </ion-col>
     </ion-row>
   </ion-grid>

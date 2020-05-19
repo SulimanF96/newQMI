@@ -1,6 +1,7 @@
 import { TranslationService } from './../../../shared/services/translation.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-switcher',
@@ -11,16 +12,16 @@ export class LanguageSwitcherComponent implements OnInit {
 
   @Output() lang = new EventEmitter();
 
-  constructor(private actionSheetController: ActionSheetController, private translationService: TranslationService) { }
+  constructor(private actionSheetController: ActionSheetController, private translationService: TranslationService, private translateService: TranslateService) { }
 
   ngOnInit() { }
 
   async presentActionSheetForLanguage() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Languages',
+      header: this.translateService.instant('SETTINGS.LANGUAGE'),
       mode: 'ios',
       buttons: [{
-        text: 'Arabic',
+        text: 'العربية',
         handler: () => {
           this.translationService.switchLanguage('ar');
           this.lang.emit('ar');
@@ -32,7 +33,7 @@ export class LanguageSwitcherComponent implements OnInit {
           this.lang.emit('en');
         }
       }, {
-        text: 'Cancel',
+        text: this.translateService.instant('CANCEL'),
         cssClass: 'red',
         role: 'cancel'
       }]

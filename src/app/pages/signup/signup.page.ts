@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +20,7 @@ export class SignupPage implements OnInit {
   public loading = false;
   public language = 'en';
 
-  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController, private translationService: TranslationService) { }
+  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController, private translationService: TranslationService, private translateService: TranslateService) { }
 
   ngOnInit() {
     this.credentials = new FormGroup({
@@ -68,7 +70,7 @@ export class SignupPage implements OnInit {
     const toast = await this.toast.create({
       position: 'top',
       cssClass: 'toast',
-      message: `an account for ${username} was created successfully.`,
+      message: this.translateService.instant('SIGNUP.SIGNUP_MESSAGE') + ' ' + username,
       duration: 2000
     });
     toast.present();

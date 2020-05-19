@@ -6,9 +6,11 @@
 </ion-toolbar>
 
 <ion-content>
-  <ion-searchbar [formControl]="medicationName" mode="ios" animated howCancelButton="focus"></ion-searchbar>
+  <ion-searchbar [ngClass]="{ 'rtl': language == 'ar'}" placeholder="{{ 'SEARCH_MANUALLY.SEARCH' | translate }}"
+    [formControl]="medicationName" mode="ios" animated howCancelButton="focus"></ion-searchbar>
 
-  <ion-fab-button [disabled]="!medicationName.valid" (click)="searchForMedication()" class="search">
+  <ion-fab-button [disabled]="!medicationName.valid" (click)="searchForMedication()" class="search"
+    [ngClass]="{ 'rtl': language == 'ar'}">
     <ion-icon name="search-outline"></ion-icon>
   </ion-fab-button>
 

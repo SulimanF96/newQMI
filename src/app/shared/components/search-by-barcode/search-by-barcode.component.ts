@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search-by-barcode',
@@ -11,21 +12,21 @@ import { Router } from '@angular/router';
 export class SearchByBarcodeComponent implements OnInit {
 
 
-  constructor(private actionSheetController: ActionSheetController, private barcodeScanner: BarcodeScanner, private router: Router) { }
+  constructor(private actionSheetController: ActionSheetController, private barcodeScanner: BarcodeScanner, private router: Router, private translateService: TranslateService) { }
 
   ngOnInit() { }
 
   async confirmOpeningCameraForBarcode() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Do you want to open your camera ?',
+      header: this.translateService.instant('SEARCH_BY_BARCODE.BARCODE_AUTH_MESSAGE'),
       mode: 'ios',
       buttons: [{
-        text: 'Yes',
+        text: this.translateService.instant('SEARCH_BY_BARCODE.YES'),
         handler: () => {
           this.scanBarcode();
         }
       }, {
-        text: 'No',
+        text: this.translateService.instant('SEARCH_BY_BARCODE.NO'),
         cssClass: 'red',
         handler: () => {
           actionSheet.dismiss();

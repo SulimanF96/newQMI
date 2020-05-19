@@ -4,6 +4,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
 import * as Tesseract from 'tesseract.js';
 import { LoadingController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search-by-image',
@@ -15,27 +16,27 @@ export class SearchByImageComponent implements OnInit {
   private selectedImage: string;
   private extractedText: string;
 
-  constructor(private actionSheetController: ActionSheetController, private camera: Camera, private router: Router, private loadingController: LoadingController) { }
+  constructor(private actionSheetController: ActionSheetController, private camera: Camera, private router: Router, private loadingController: LoadingController, private translateService: TranslateService) { }
 
   ngOnInit() { }
 
   async selectSource() {
     const actionSheet = await this.actionSheetController.create({
-      header: 'Image source',
+      header: this.translateService.instant('SEARCH_BY_IMAGE.IMAGE_SOURCE'),
       mode: 'ios',
       buttons: [
         {
-          text: 'Use Library',
+          text: this.translateService.instant('SEARCH_BY_IMAGE.USE_LIBRARY'),
           handler: () => {
             this.fetchPicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         }, {
-          text: 'Capture Image',
+          text: this.translateService.instant('SEARCH_BY_IMAGE.CAPTURE_IMAGE'),
           handler: () => {
             this.fetchPicture(this.camera.PictureSourceType.CAMERA);
           }
         }, {
-          text: 'Cancel',
+          text: this.translateService.instant('CANCEL'),
           cssClass: 'red',
           role: 'cancel'
         }
@@ -63,7 +64,7 @@ export class SearchByImageComponent implements OnInit {
 
   async extractTextFromImage() {
     const loading = await this.loadingController.create({
-      message: 'Extracting...',
+      message: this.translateService.instant('SEARCH_BY_IMAGE.EXTRACTING_MESSAGE'),
     });
     await loading.present();
     Tesseract.recognize(this.selectedImage).then(({ data: { text } }) => {

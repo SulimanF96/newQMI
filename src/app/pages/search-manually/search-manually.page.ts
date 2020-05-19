@@ -1,3 +1,4 @@
+import { TranslationService } from './../../shared/services/translation.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,11 +11,15 @@ import { Router } from '@angular/router';
 export class SearchManuallyPage implements OnInit {
 
   public medicationName: FormControl;
+  public language = 'en';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private translationService: TranslationService) { }
 
   ngOnInit() {
     this.medicationName = new FormControl('', Validators.required);
+    this.translationService.language$.subscribe( language => {
+      this.language = language;
+    });
   }
 
   searchForMedication() {

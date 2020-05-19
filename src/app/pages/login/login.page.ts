@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginPage implements OnInit {
   public loading = false;
   public language = 'en';
 
-  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController, private translationService: TranslationService) { }
+  constructor(private authService: AuthService, private router: Router, private userProfileService: UserProfileService, private toast: ToastController, private translationService: TranslationService, private translateService: TranslateService) { }
 
   ngOnInit() {
     this.credentials = new FormGroup({
@@ -72,7 +73,7 @@ export class LoginPage implements OnInit {
     const toast = await this.toast.create({
       position: 'top',
       cssClass: 'toast',
-      message: `${username} was logged in successfully.`,
+      message: this.translateService.instant('LOGIN.LOGIN_MESSAGE') + ' ' + username,
       duration: 2000
     });
     toast.present();

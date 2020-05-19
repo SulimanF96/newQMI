@@ -12,6 +12,11 @@ span.attribute-name {
   letter-spacing: 2px;
 }
 
+span.attribute-name.rtl{
+  letter-spacing: 0;
+  font-weight: bold;
+}
+
 span.attribute-value {
   color: var(--ion-color-primary);
   display: block;
@@ -19,8 +24,17 @@ span.attribute-value {
   letter-spacing: 2px;
 }
 
+span.attribute-value.rtl{
+  letter-spacing: 0;
+}
+
 ion-col.details {
   padding-left: 38px;
+}
+
+ion-col.details.rtl{
+  padding-left: 0;
+  padding-right: 38px;
 }
 
 .medication-image {
@@ -41,12 +55,21 @@ p {
   white-space: pre-line;
 }
 
+p.rtl{
+  letter-spacing: 0;
+}
+
 .image-skeleton {
   height: 100%;
 }
 
 ion-col.image-col {
   padding-left: 36px;
+}
+
+ion-col.image-col.rtl{
+  padding-left: 0;
+  padding-right: 36px;
 }
 
 ion-grid.error-message-container {

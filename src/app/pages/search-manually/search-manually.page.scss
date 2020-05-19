@@ -4,5 +4,8 @@
   right: 34px;
   bottom: 57px;
 }
-
-
+.search.rtl {
+  float: left;
+  right: unset;
+  left: 34px
+}

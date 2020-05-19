@@ -472,6 +472,18 @@ ion-searchbar {
   }
 }
 
+ion-searchbar.rtl {
+  .searchbar-input-container {
+    input.searchbar-input {
+      letter-spacing: 0;
+    }
+
+    .searchbar-clear-button.sc-ion-searchbar-ios {
+      left: 88px;
+    }
+  }
+}
+
 ion-toolbar {
   letter-spacing: 2px;
 }

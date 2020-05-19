@@ -7,7 +7,8 @@
     "LOGIN": {
         "LOGIN": "Login",
         "FORGOT_PASSWORD": "forgot your pasword?",
-        "SIGNUP_MESSAGE": "You Don't have an account ?"
+        "SIGNUP_MESSAGE": "You Don't have an account ?",
+        "LOGIN_MESSAGE": "You logged in with an account named"
     },
     "MEDICATION_DETAILS": {
         "MEDICATION_DETAILS": "Medication Details",
@@ -27,7 +28,8 @@
     },
     "MORE": {
         "MORE": "More",
-        "LOGOUT": "Logout"
+        "LOGOUT": "Logout",
+        "LOGOUT_MESSAGE": "sign out for"
     },
     "ADMINISTARTION": {
         "ADMINISTARTION": "Administartion"
@@ -42,7 +44,12 @@
         "SETTINGS": "Settings",
         "LANGUAGE": "Language",
         "THEME": "Theme",
-        "USER_GUIDE": "User Guide"
+        "USER_GUIDE": "User Guide",
+        "TERTIARY": "Tertiary",
+        "GREEN": "Green",
+        "RED": "Red",
+        "BLUE": "Blue",
+        "DARK": "Dark"
     },
     "SEARCH_MANUALLY": {
         "SEARCH_MANUALLY": "Search Manually",
@@ -59,9 +66,13 @@
         "IMAGE_SOURCE": "Image source",
         "USE_LIBRARY": "Use Library",
         "CAPTURE_IMAGE": "Capture Image",
-        "CANCEL": "Cancel"
+        "EXTRACTING_MESSAGE": "Extracting..."
     },
     "SIGNUP": "Sign Up",
+    "SIGNUP_MESSAGE": "An account was created successfully for",
     "USERNAME": "Username",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "REFRESH": "Pull to refresh",
+    "REFRESHING": "Refreshing...",
+    "CANCEL": "Cancel"
 }

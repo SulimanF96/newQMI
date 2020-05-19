@@ -1,3 +1,4 @@
+import { TranslationService } from './../../shared/services/translation.service';
 import { MedicationService } from '../../shared/services/medication.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,10 +15,14 @@ export class MedicationDetailsPage implements OnInit {
   private medicationID: string;
   public dataStatus = 'loading';
   public medicationDetails: Medication;
+  public language = 'en';
 
-  constructor(private route: ActivatedRoute, private medicationService: MedicationService) { }
+  constructor(private route: ActivatedRoute, private medicationService: MedicationService, private translationService: TranslationService) { }
 
   ngOnInit() {
+    this.translationService.language$.subscribe( language =>  {
+      this.language = language;
+    });
     this.route.params.subscribe(params => {
       this.medicationName = params['medicationName'];
       this.medicationID = params['medicationID'];

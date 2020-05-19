@@ -6,6 +6,8 @@ import { AuthService } from './../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { TranslationService } from './../../shared/services/translation.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-more',
@@ -19,7 +21,7 @@ export class MorePage implements OnInit {
   private username: string;
   public language = 'en';
 
-  constructor(private angularFireAuth: AngularFireAuth, private userProfileService: UserProfileService, private authService: AuthService, private router: Router, private toast: ToastController, private translationService: TranslationService) { }
+  constructor(private angularFireAuth: AngularFireAuth, private userProfileService: UserProfileService, private authService: AuthService, private router: Router, private toast: ToastController, private translationService: TranslationService, private translateService: TranslateService) { }
 
   ngOnInit() {
     this.angularFireAuth.authState.subscribe(user => {
@@ -55,7 +57,7 @@ export class MorePage implements OnInit {
     const toast = await this.toast.create({
       position: 'top',
       cssClass: 'toast',
-      message: `${username} was logged out successfully.`,
+      message: this.translateService.instant('MORE.LOGOUT_MESSAGE') + username,
       duration: 2000
     });
     toast.present();

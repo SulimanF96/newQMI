@@ -7,7 +7,8 @@
     "LOGIN": {
         "LOGIN": "تسجيل الدخول",
         "FORGOT_PASSWORD": "هل نسيت كلمة السر ؟",
-        "SIGNUP_MESSAGE": "ليس لديك حساب ؟"
+        "SIGNUP_MESSAGE": "ليس لديك حساب ؟",
+        "LOGIN_MESSAGE": "تم تسجيل دخولك بحساب"
     },
     "MEDICATION_DETAILS": {
         "MEDICATION_DETAILS": "تفاصيل الدواء",
@@ -27,7 +28,8 @@
     },
     "MORE": {
         "MORE": "المزيد",
-        "LOGOUT": "تسجيل خروج"
+        "LOGOUT": "تسجيل خروج",
+        "LOGOUT_MESSAGE": "تم تسجيل الخروج ل"
     },
     "ADMINISTARTION": {
         "ADMINISTARTION": "الادارة"
@@ -42,7 +44,12 @@
         "SETTINGS": "الاعدادات",
         "LANGUAGE": "اللغة",
         "THEME": "الشكل",
-        "USER_GUIDE": "دليل المستخدم"
+        "USER_GUIDE": "دليل المستخدم",
+        "TERTIARY": "تركوازي",
+        "GREEN": "اخضر",
+        "RED": "احمر",
+        "BLUE": "ازرق",
+        "DARK": "عاتم"
     },
     "SEARCH_MANUALLY": {
         "SEARCH_MANUALLY": "البحث اليدوي",
@@ -52,16 +59,20 @@
         "SEARCH_BY_BARCODE": "البحث بالباركود",
         "BARCODE_AUTH_MESSAGE": "هل ترغب بفتح الكاميرا ؟",
         "YES": "نعم",
-        "NO": "لا"
+        "NO": "لا",
+        "EXTRACTING_MESSAGE": "... يتم استخراج النص"
     },
     "SEARCH_BY_IMAGE": {
         "SEARCH_BY_IMAGE": "البحث بالتصوير",
         "IMAGE_SOURCE": "مصدر الصورة",
         "USE_LIBRARY": "مكتبة الصور",
-        "CAPTURE_IMAGE": "التقط صوره",
-        "CANCEL": "تراجع"
+        "CAPTURE_IMAGE": "التقط صوره"
     },
     "SIGNUP": "تسجيل حساب",
+    "SIGNUP_MESSAGE": "تم اضافة حساب جديد ل",
     "USERNAME": "اسم السمتخدم",
-    "PASSWORD": "كلمة السر"
+    "PASSWORD": "كلمة السر",
+    "REFRESH": "اسحب للتحديث",
+    "REFRESHING": "...جاري التحديث",
+    "CANCEL": "تراجع"
 }
