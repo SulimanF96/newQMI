@@ -59,7 +59,7 @@
         </ion-card>
       </ion-col>
       <ion-col *ngIf="userIsLoggedIn && userProfile && !userProfile?.isAdmin" size="6">
-        <ion-card class="ion-text-center">
+        <ion-card routerLink="/tabs/search-history" class="ion-text-center">
           <ion-card-content>
             <ion-icon size="large" name="file-tray-outline"></ion-icon>
             <h1>{{'SEARCH_HISTORY.SEARCH_HISTORY' | translate}}</h1>

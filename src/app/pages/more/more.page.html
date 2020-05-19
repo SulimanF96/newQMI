@@ -26,7 +26,7 @@
     </ion-row>
     <ion-row *ngIf="userIsLoggedIn && userProfile && !userProfile?.isAdmin">
       <ion-card>
-        <ion-card-content>
+        <ion-card-content routerLink="/tabs/search-history">
           <ion-text [ngClass]="{ 'ion-text-arabic': language == 'ar', 'ion-text-english': language == 'en'}">{{ 'SEARCH_HISTORY.SEARCH_HISTORY' | translate}}</ion-text>
           <ion-icon [ngClass]="{ 'ion-icon-arabic': language == 'ar', 'ion-icon-english': language == 'en'}" size="large" name="file-tray-outline"></ion-icon>
         </ion-card-content>

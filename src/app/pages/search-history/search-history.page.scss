@@ -1,0 +1,36 @@
+// ion-toolbar {
+//     --background: var(--ion-color-primary);
+//     color: white;
+//   }
+  
+  ion-toolbar.rtl{
+    letter-spacing: 0;
+  }
+  
+  
+//   ion-content {
+//     --background: var(--ion-color-primary);
+//   }
+  
+  ion-card {
+    width: 91vw;
+    color: white;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: var(--ion-color-primary-tint);
+    //   background-color: #6370ff;
+  }
+  
+  ion-text {
+    font-size: 23px;
+  }
+
+  ion-icon.ltr{
+      float: right;
+      transform: rotate(180deg);
+  }
+
+  ion-icon.rtl{
+      float: left;
+  }

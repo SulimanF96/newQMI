@@ -36,6 +36,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/more/more.module').then( m => m.MorePageModule)
       },
       {
+        path: 'search-history',
+        loadChildren: () => import('../pages/search-history/search-history.module').then( m => m.SearchHistoryPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

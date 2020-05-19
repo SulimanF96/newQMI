@@ -12,10 +12,6 @@ const routes: Routes = [
     path: 'user-guide',
     loadChildren: () => import('./pages/user-guide/user-guide.module').then(m => m.UserGuidePageModule)
   },
-  {
-    path: 'more',
-    loadChildren: () => import('./pages/more/more.module').then( m => m.MorePageModule)
-  },
 ];
 @NgModule({
   imports: [
