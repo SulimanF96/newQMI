@@ -3,6 +3,11 @@ ion-toolbar {
   color: white;
 }
 
+ion-toolbar.rtl{
+  letter-spacing: 0;
+}
+
+
 ion-content {
   --background: var(--ion-color-primary);
 }

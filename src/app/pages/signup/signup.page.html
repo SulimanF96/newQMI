@@ -1,6 +1,6 @@
-<ion-toolbar>
+<ion-toolbar [ngClass]="{ 'rtl': language == 'ar' }">
   <ion-buttons routerLink="/tabs/login" slot="start">
-    <ion-icon size="large" name="chevron-back-outline"></ion-icon>
+    <ion-icon size="large" name="{{ language != 'ar' ? 'chevron-back-outline' : 'chevron-forward-outline'}}"></ion-icon>
   </ion-buttons>
 </ion-toolbar>
 

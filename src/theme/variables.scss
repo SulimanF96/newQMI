@@ -555,3 +555,8 @@ ion-input{
   letter-spacing: 1px;
 }
 
+ion-icon[ng-reflect-name^="chevron-forward-outline"]{
+  transform: rotate(180deg);
+  }
+
+
