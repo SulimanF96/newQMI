@@ -3,12 +3,15 @@
     <ion-icon size="large" name="{{ language != 'ar' ? 'chevron-back-outline' : 'chevron-forward-outline'}}"></ion-icon>
   </ion-buttons>
   <h1 class="ion-text-center">{{ 'MEDICATION_DETAILS.MEDICATION_DETAILS' | translate}}</h1>
-  <ion-buttons slot="end">
-    <ion-icon size="large" name="download-outline"></ion-icon>
+  <ion-buttons *ngIf="dataStatus == 'found'" (click)="createPDF()" slot="end">
+    <ion-icon  size="large" name="download-outline"></ion-icon>
   </ion-buttons>
 </ion-toolbar>
 
 <ion-content>
+
+  <ion-icon *ngIf="dataStatus == 'found'" class="bookmark-icon" [ngClass]="{'rtl': language == 'ar'}" size="large" name="bookmark-outline"></ion-icon>
+
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="{{ 'REFRESH' | translate }}"
       refreshingSpinner="circles" refreshingText="{{ 'REFRESHING' | translate }}">

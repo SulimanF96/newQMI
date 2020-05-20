@@ -83,3 +83,16 @@ ion-grid.error-message-container {
 .error-message {
   color: var(--ion-color-primary);
 }
+
+ion-icon.bookmark-icon{
+  float: right;
+  position: relative;
+  right: 41px;
+}
+
+ion-icon.bookmark-icon.rtl{
+  float: left;
+  position: relative;
+  right: unset;
+  left: 41px;
+}

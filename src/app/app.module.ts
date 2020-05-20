@@ -17,6 +17,8 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 export const config = {
   apiKey: "AIzaSyCQ4xX0Gu94MO-g7nnLP8D0MIHLemViRlQ",
@@ -46,6 +48,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    FileOpener,
+    File,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

@@ -24,7 +24,8 @@
         "COMPONENTS": "Components",
         "SORRY": "Sorry",
         "NOT_FOUND": "was not found",
-        "TRY_AGAIN": "Try Again"
+        "TRY_AGAIN": "Try Again",
+        "DOWNLOAD_MESSAGE": "Your medication Details was downloaded"
     },
     "MORE": {
         "MORE": "More",

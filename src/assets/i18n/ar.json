@@ -24,7 +24,8 @@
         "COMPONENTS": "العناصر",
         "SORRY": "نتأسف",
         "NOT_FOUND": "لم يتم ايجاده",
-        "TRY_AGAIN": "حاول مره اخرى"
+        "TRY_AGAIN": "حاول مره اخرى",
+        "DOWNLOAD_MESSAGE": "تم تنزيل معلوماتك الدوائية"
     },
     "MORE": {
         "MORE": "المزيد",
