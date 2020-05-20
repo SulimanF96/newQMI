@@ -20,7 +20,7 @@ export class MedicationDetailsPage implements OnInit {
   constructor(private route: ActivatedRoute, private medicationService: MedicationService, private translationService: TranslationService) { }
 
   ngOnInit() {
-    this.translationService.language$.subscribe( language =>  {
+    this.translationService.language$.subscribe(language => {
       this.language = language;
     });
     this.route.params.subscribe(params => {
@@ -31,18 +31,33 @@ export class MedicationDetailsPage implements OnInit {
   }
 
   serachForMedicationWithName(medicationName: string) {
-    this.medicationService.searchForMedicationWithName(medicationName).then((medicationDetails) => {
-      if (medicationDetails.val() != null) {
-        medicationDetails.forEach((medicationDetails) => {
-          this.medicationDetails = medicationDetails.val();
-        });
-        this.dataStatus = 'found';
-      } else {
-        this.dataStatus = 'not found';
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
+    if (!this.isArabic(medicationName)) {
+      this.medicationService.searchForMedicationWithName(medicationName).then((medicationDetails) => {
+        if (medicationDetails.val() != null) {
+          medicationDetails.forEach((medicationDetails) => {
+            this.medicationDetails = medicationDetails.val();
+          });
+          this.dataStatus = 'found';
+        } else {
+          this.dataStatus = 'not found';
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else {
+      this.medicationService.searchForMedicationWithArabicName(medicationName).then((medicationDetails) => {
+        if (medicationDetails.val() != null) {
+          medicationDetails.forEach((medicationDetails) => {
+            this.medicationDetails = medicationDetails.val();
+          });
+          this.dataStatus = 'found';
+        } else {
+          this.dataStatus = 'not found';
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   }
 
   serachForMedicationWithID(medicationID: string) {
@@ -73,5 +88,11 @@ export class MedicationDetailsPage implements OnInit {
       this.medicationID === 'null' ? this.serachForMedicationWithName(this.medicationName) : this.serachForMedicationWithID(this.medicationID);
       event.target.complete();
     }, 500);
+  }
+
+  isArabic(text) {
+    const pattern = /[\u0600-\u06FF\u0750-\u077F]/;
+    const result = pattern.test(text);
+    return result;
   }
 }
