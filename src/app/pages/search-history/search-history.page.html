@@ -3,6 +3,9 @@
     <ion-icon size="large" name="{{ language != 'ar' ? 'chevron-back-outline' : 'chevron-forward-outline'}}"></ion-icon>
   </ion-buttons>
   <h1 class="ion-text-center">{{ 'SEARCH_HISTORY.SEARCH_HISTORY' | translate}}</h1>
+  <ion-buttons *ngIf="searchHistory.length > 0" (click)="presentAlertConfirm()" slot="end">
+    <ion-icon size="large" name="trash-outline"></ion-icon>
+  </ion-buttons>
 </ion-toolbar>
 
 <ion-content>

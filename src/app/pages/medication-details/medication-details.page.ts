@@ -24,6 +24,7 @@ export class MedicationDetailsPage implements OnInit {
   public medicationDetails: Medication;
   public language = 'en';
   private pdfObject = null;
+  public isFavorite = false;
 
   constructor(private route: ActivatedRoute,
     private medicationService: MedicationService,
@@ -44,6 +45,25 @@ export class MedicationDetailsPage implements OnInit {
       this.medicationID = params['medicationID'];
     });
     this.medicationID === 'null' ? this.serachForMedicationWithName(this.medicationName) : this.serachForMedicationWithID(this.medicationID);
+    this.userProfileService.userProfile$.subscribe(userProfile => {
+      console.log('1')
+      if (userProfile.favorites !== undefined) {
+        this.isFavorite = userProfile.favorites.includes(this.medicationName.toUpperCase());
+        console.log('2');
+        console.log(userProfile.favorites);
+      }
+    });
+  }
+
+  ionViewWillEnter() {
+    this.userProfileService.userProfile$.subscribe(userProfile => {
+      console.log('1')
+      if (userProfile.favorites !== undefined) {
+        this.isFavorite = userProfile.favorites.includes(this.medicationName.toUpperCase());
+        console.log('2');
+        console.log(userProfile.favorites);
+      }
+    });
   }
 
   serachForMedicationWithName(medicationName: string) {
@@ -167,6 +187,29 @@ export class MedicationDetailsPage implements OnInit {
     toast.present();
   }
 
+  addToFavorites(medicationName: string) {
+    console.log('3');
+    if (this.userProfileService.userID) {
+      console.log('4')
+      this.userProfileService.addToFavorites(medicationName).then(res => {
+        console.log('it was added to favorites', res);
+        this.isFavorite = true;
+      }).catch(error => {
+        console.log(error);
+      });
+    }
+  }
+
+  deleteFromFavorites(medicationName: string) {
+    if (this.userProfileService.userID) {
+      this.userProfileService.deleteFromFavorites(medicationName).then(res => {
+        console.log('it was deleted from favorites', res);
+        this.isFavorite = false;
+      }).catch(error => {
+        console.log(error);
+      });
+    }
+  }
 
   searchAgain() {
     this.dataStatus = 'loading';

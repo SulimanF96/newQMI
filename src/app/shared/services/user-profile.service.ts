@@ -145,4 +145,160 @@ export class UserProfileService {
     return this.userProfilesRef.update(this.userID, newUserProfile);
   }
 
+  async clearSearchHistory() {
+    let newUserProfile = {};
+    let searchHistory = [];
+    await this.getUserProfile(this.userID).then(userProfile => {
+      userProfile.forEach((userProfile) => {
+        if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: [],
+            favorites: userProfile.val().favorites
+          };
+        } else if (userProfile.val().history !== undefined && userProfile.val().favorites === undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: [],
+          };
+        } else if (userProfile.val().history === undefined && userProfile.val().favorites !== undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            favorites: userProfile.val().favorites
+          };
+        } else {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+          };
+        }
+      });
+    }).catch(error => {
+      console.log(error);
+    });
+    this.userProfile$.next(newUserProfile);
+    return this.userProfilesRef.update(this.userID, newUserProfile);
+  }
+
+  async addToFavorites(search: string) {
+    let newUserProfile = {};
+    let favorites = [];
+    await this.getUserProfile(this.userID).then(userProfile => {
+      userProfile.forEach((userProfile) => {
+        if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
+          if (!userProfile.val().favorites.includes(search, 0)) {
+            favorites = userProfile.val().favorites;
+            favorites.push(search);
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history:  userProfile.val().history,
+            favorites: !userProfile.val().favorites.includes(search, 0) ?  favorites : userProfile.val().favorites
+          };
+        } else if (userProfile.val().history !== undefined && userProfile.val().favorites === undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: userProfile.val().history,
+            favorites: [search]
+          };
+        } else if (userProfile.val().history === undefined && userProfile.val().favorites !== undefined) {
+          if (!userProfile.val().favorites.includes(search, 0)) {
+            favorites = userProfile.val().favorites;
+            favorites.push(search);
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            favorites: !userProfile.val().favorites.includes(search, 0) ?  favorites : userProfile.val().favorites
+          };
+        } else {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            favorites: [search]
+          };
+        }
+      });
+    }).catch(error => {
+      console.log(error);
+    });
+    this.userProfile$.next(newUserProfile);
+    return this.userProfilesRef.update(this.userID, newUserProfile);
+  }
+
+  async deleteFromFavorites(search: string) {
+    let newUserProfile = {};
+    let favorites = [];
+    await this.getUserProfile(this.userID).then(userProfile => {
+      userProfile.forEach((userProfile) => {
+        if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
+          if (userProfile.val().favorites.includes(search, 0)) {
+            favorites = userProfile.val().favorites;
+            favorites.splice(favorites.indexOf(search), 1)
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history:  userProfile.val().history,
+            favorites: userProfile.val().favorites.includes(search, 0) ?  favorites : userProfile.val().favorites
+          };
+        } else if (userProfile.val().history !== undefined && userProfile.val().favorites === undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: userProfile.val().history,
+          };
+        } else if (userProfile.val().history === undefined && userProfile.val().favorites !== undefined) {
+          if (userProfile.val().favorites.includes(search, 0)) {
+            favorites = userProfile.val().favorites;
+            favorites.splice(favorites.indexOf(search), 1);
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            favorites: userProfile.val().favorites.includes(search, 0) ?  favorites : userProfile.val().favorites
+          };
+        } else {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+          };
+        }
+      });
+    }).catch(error => {
+      console.log(error);
+    });
+    this.userProfile$.next(newUserProfile);
+    return this.userProfilesRef.update(this.userID, newUserProfile);
+  }
+
 }

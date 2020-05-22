@@ -36,7 +36,11 @@
         "ADMINISTARTION": "Administartion"
     },
     "SEARCH_HISTORY": {
-        "SEARCH_HISTORY": "Search History"
+        "SEARCH_HISTORY": "Search History",
+        "CONFIRMATION": "Confirmation",
+        "CONFIRMATION_MESSAGE": "Are you sure you want to clear the history?",
+        "YES": "Yes",
+        "CANCEL": "Cancel"
     },
     "FAVORITES": {
         "FAVORITES": "Favorites"

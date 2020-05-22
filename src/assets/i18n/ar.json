@@ -2,7 +2,7 @@
     "HOME" : {
         "HOME": "الرئيسية",
         "WELCOME": "مرحبا",
-        "WELCOME_MESSAGE": "يمكنكم خلال هذا البرنامج البحث بشكل سريع عن معلوماتك الدوائية"
+        "WELCOME_MESSAGE": "يمكنك خلال هذا البرنامج البحث بشكل سريع عن معلوماتك الدوائية"
     },
     "LOGIN": {
         "LOGIN": "تسجيل الدخول",
@@ -36,7 +36,11 @@
         "ADMINISTARTION": "الادارة"
     },
     "SEARCH_HISTORY": {
-        "SEARCH_HISTORY": "تاريخ البحث"
+        "SEARCH_HISTORY": "تاريخ البحث",
+        "CONFIRMATION": "تأكيد",
+        "CONFIRMATION_MESSAGE": "هل انت متأكد من حذف تاريخ البحث ؟",
+        "YES": "نعم",
+        "CANCEL": "تراجع"
     },
     "FAVORITES": {
         "FAVORITES": "المفضلة"
