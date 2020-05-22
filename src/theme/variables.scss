@@ -213,6 +213,12 @@
               }
             }
           }
+
+          .action-sheet-group-cancel{
+             span{
+              color: var(--ion-color-danger) !important;
+             }
+          }
         }
       }
     }
@@ -233,9 +239,37 @@
       .searchbar-input-container {
         input.searchbar-input {
           color: white;
+          background: var(--ion-color-primary-tint);
         }
       }
     }
+
+    ion-item-sliding{
+      ion-item{
+        --background: var(--ion-color-primary);
+      }
+    }
+
+    .username{
+      background-color: var(--ion-color-primary-tint);
+    }
+
+    .password{
+      background-color: var(--ion-color-primary-tint);
+    }
+
+    .login-submit{
+      background: unset;
+    }
+
+    .signup-submit{
+      background: unset;
+  }
+
+    ion-input{
+      --placeholder-color: grey;
+      --color: white;
+  }
   }
 }
 
