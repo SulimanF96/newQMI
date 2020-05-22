@@ -46,6 +46,7 @@ export class MorePage implements OnInit {
     this.authService.logout().then(res => {
       console.log('user was logged out', res);
       this.userProfileService.userProfile$.next(null);
+      this.userProfileService.userID = '';
       this.presentToast(this.username);
       this.router.navigate(['tabs/home']);
     }).catch(error => {

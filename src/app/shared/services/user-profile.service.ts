@@ -1,4 +1,4 @@
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -10,14 +10,10 @@ export class UserProfileService {
 
   private userProfilesRef: AngularFireList<any>;
   public userProfile$ = new BehaviorSubject(null);
-  public userProfile = [];
-  private userID: string;
+  userID: string;
 
   constructor(private angularFireDatabase: AngularFireDatabase, private angularFireAuth: AngularFireAuth) {
     this.userProfilesRef = this.angularFireDatabase.list('/user-profiles');
-    this.userProfile$.subscribe(userProfile => {
-      this.userProfile = userProfile;
-    });
     this.angularFireAuth.authState.subscribe(authState => {
       this.userID = authState.uid;
     });
@@ -36,19 +32,119 @@ export class UserProfileService {
       history: [],
       favorites: []
     };
-    console.log(userProfile);
     return this.userProfilesRef.set(userID, userProfile);
   }
 
-  addNewSearchHistory(search: string) {
-    let newUserProfile = {
-      isAdmin: this.userProfile.isAdmin,
-      username: this.userProfile.username,
-      email: this.userProfile.email,
-      photo: this.userProfile.photo,
-      history: this.userProfile.history.push(search),
-      favorites: this.userProfile.favorites
-    };
+  async addNewEnteryToSearchHistory(search: string) {
+    let newUserProfile = {};
+    let searchHistory = [];
+    await this.getUserProfile(this.userID).then(userProfile => {
+      userProfile.forEach((userProfile) => {
+        if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
+          if (!userProfile.val().history.includes(search, 0)) {
+            searchHistory = userProfile.val().history;
+            searchHistory.push(search);
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: !userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
+            favorites: userProfile.val().favorites
+          };
+        } else if (userProfile.val().history !== undefined && userProfile.val().favorites === undefined) {
+          if (!userProfile.val().history.includes(search, 0)) {
+            searchHistory = userProfile.val().history;
+            searchHistory.push(search);
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: !userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
+          };
+        } else if (userProfile.val().history === undefined && userProfile.val().favorites !== undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: [search],
+            favorites: userProfile.val().favorites
+          };
+        } else {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: [search]
+          };
+        }
+      });
+    }).catch(error => {
+      console.log(error);
+    });
+    this.userProfile$.next(newUserProfile);
     return this.userProfilesRef.update(this.userID, newUserProfile);
   }
+
+  async deleteEnteryFromSearchHistory(search: string) {
+    let newUserProfile = {};
+    let searchHistory = [];
+    await this.getUserProfile(this.userID).then(userProfile => {
+      userProfile.forEach((userProfile) => {
+        if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
+          if (userProfile.val().history.includes(search, 0)) {
+            searchHistory = userProfile.val().history;
+            searchHistory.push(search);
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: !userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
+            favorites: userProfile.val().favorites
+          };
+        } else if (userProfile.val().history !== undefined && userProfile.val().favorites === undefined) {
+          if (!userProfile.val().history.includes(search, 0)) {
+            searchHistory = userProfile.val().history;
+            searchHistory.push(search);
+          }
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: !userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
+          };
+        } else if (userProfile.val().history === undefined && userProfile.val().favorites !== undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: [search],
+            favorites: userProfile.val().favorites
+          };
+        } else {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: [search]
+          };
+        }
+      });
+    }).catch(error => {
+      console.log(error);
+    });
+    this.userProfile$.next(newUserProfile);
+    return this.userProfilesRef.update(this.userID, newUserProfile);
+  }
+
 }

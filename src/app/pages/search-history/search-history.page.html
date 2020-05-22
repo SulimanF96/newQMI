@@ -7,21 +7,11 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
+    <ion-row *ngFor="let searchEntery of searchHistory">
       <ion-card>
-        <ion-card-content>
-          <ion-text *ngIf="language == 'en'">Tenormin</ion-text>
-          <ion-text *ngIf="language == 'ar'">تينورمين</ion-text>
-          <ion-icon [ngClass]="{ 'rtl': language == 'ar', 'ltr': language == 'en'}" size="large"
-            name="chevron-back-outline"></ion-icon>
-        </ion-card-content>
-      </ion-card>
-    </ion-row>
-    <ion-row>
-      <ion-card>
-        <ion-card-content>
-          <ion-text *ngIf="language == 'en'">Fevadol</ion-text>
-          <ion-text *ngIf="language == 'ar'">فيفادول</ion-text>
+        <ion-card-content (click)="searchForMedication(searchEntery)">
+          <ion-text>{{searchEntery}}</ion-text>
+          <!-- <ion-text *ngIf="language == 'ar'">تينورمين</ion-text> -->
           <ion-icon [ngClass]="{ 'rtl': language == 'ar', 'ltr': language == 'en'}" size="large"
             name="chevron-back-outline"></ion-icon>
         </ion-card-content>

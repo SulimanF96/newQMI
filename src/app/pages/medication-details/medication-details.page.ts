@@ -1,3 +1,4 @@
+import { UserProfileService } from './../../shared/services/user-profile.service';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslationService } from './../../shared/services/translation.service';
 import { MedicationService } from '../../shared/services/medication.service';
@@ -25,13 +26,14 @@ export class MedicationDetailsPage implements OnInit {
   private pdfObject = null;
 
   constructor(private route: ActivatedRoute,
-              private medicationService: MedicationService,
-              private translationService: TranslationService,
-              private file: File,
-              private fileOpener: FileOpener,
-              private platform: Platform,
-              private toastController: ToastController,
-              private translateService: TranslateService) { }
+    private medicationService: MedicationService,
+    private translationService: TranslationService,
+    private file: File,
+    private fileOpener: FileOpener,
+    private platform: Platform,
+    private toastController: ToastController,
+    private translateService: TranslateService,
+    private userProfileService: UserProfileService) { }
 
   ngOnInit() {
     this.translationService.language$.subscribe(language => {
@@ -52,6 +54,9 @@ export class MedicationDetailsPage implements OnInit {
             this.medicationDetails = medicationDetails.val();
           });
           this.dataStatus = 'found';
+          if (this.userProfileService.userID) {
+            this.addNewEnteryToSearchHistory(this.medicationDetails.name);
+          }
         } else {
           this.dataStatus = 'not found';
         }
@@ -65,6 +70,9 @@ export class MedicationDetailsPage implements OnInit {
             this.medicationDetails = medicationDetails.val();
           });
           this.dataStatus = 'found';
+          if (this.userProfileService.userID) {
+            this.addNewEnteryToSearchHistory(this.medicationDetails.name);
+          }
         } else {
           this.dataStatus = 'not found';
         }
@@ -72,6 +80,12 @@ export class MedicationDetailsPage implements OnInit {
         console.log(error);
       });
     }
+  }
+
+  addNewEnteryToSearchHistory(medicationName: string) {
+    this.userProfileService.addNewEnteryToSearchHistory(medicationName).then(res => {
+      console.log(res);
+    }).catch(error => { console.log(error); });
   }
 
   serachForMedicationWithID(medicationID: string) {
