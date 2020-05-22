@@ -43,7 +43,11 @@
         "CANCEL": "Cancel"
     },
     "FAVORITES": {
-        "FAVORITES": "Favorites"
+        "FAVORITES": "Favorites",
+        "CONFIRMATION": "Confirmation",
+        "CONFIRMATION_MESSAGE": "Are you sure you want to clear your favorites?",
+        "YES": "Yes",
+        "CANCEL": "Cancel"
     },
     "SETTINGS": {
         "SETTINGS": "Settings",

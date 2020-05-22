@@ -43,7 +43,11 @@
         "CANCEL": "تراجع"
     },
     "FAVORITES": {
-        "FAVORITES": "المفضلة"
+        "FAVORITES": "المفضلة",
+        "CONFIRMATION": "تأكيد",
+        "CONFIRMATION_MESSAGE": "هل انت متأكد من حذف مفضلتك ؟",
+        "YES": "نعم",
+        "CANCEL": "تراجع"
     },
     "SETTINGS": {
         "SETTINGS": "الاعدادات",

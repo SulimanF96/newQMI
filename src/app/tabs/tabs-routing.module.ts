@@ -40,6 +40,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/search-history/search-history.module').then( m => m.SearchHistoryPageModule)
       },
       {
+        path: 'favorites',
+        loadChildren: () => import('../pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

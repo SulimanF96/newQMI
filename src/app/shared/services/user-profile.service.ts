@@ -298,4 +298,50 @@ export class UserProfileService {
     return this.userProfilesRef.update(this.userID$.value, newUserProfile);
   }
 
+  async clearFavorites() {
+    let newUserProfile = {};
+    let favorites = [];
+    await this.getUserProfile(this.userID$.value).then(userProfile => {
+      userProfile.forEach((userProfile) => {
+        if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history:  userProfile.val().history,
+            favorites: []
+          };
+        } else if (userProfile.val().history !== undefined && userProfile.val().favorites === undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            history: userProfile.val().history,
+          };
+        } else if (userProfile.val().history === undefined && userProfile.val().favorites !== undefined) {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+            favorites: []
+          };
+        } else {
+          newUserProfile = {
+            email: userProfile.val().email,
+            isAdmin: userProfile.val().isAdmin,
+            photo: userProfile.val().photo,
+            username: userProfile.val().username,
+          };
+        }
+      });
+    }).catch(error => {
+      console.log(error);
+    });
+    this.userProfile$.next(newUserProfile);
+    return this.userProfilesRef.update(this.userID$.value, newUserProfile);
+  }
+
 }

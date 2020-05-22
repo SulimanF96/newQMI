@@ -1,20 +1,20 @@
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { UserProfileService } from './../../shared/services/user-profile.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TranslationService } from './../../shared/services/translation.service';
 import { AlertController } from '@ionic/angular';
 
-
 @Component({
-  selector: 'app-search-history',
-  templateUrl: './search-history.page.html',
-  styleUrls: ['./search-history.page.scss'],
+  selector: 'app-favorites',
+  templateUrl: './favorites.page.html',
+  styleUrls: ['./favorites.page.scss'],
 })
-export class SearchHistoryPage implements OnInit, OnDestroy {
+export class FavoritesPage implements OnInit {
 
   public language = 'en';
-  public searchHistory = [];
+  public favorites = [];
+
 
   constructor(private translationService: TranslationService, private userProfileService: UserProfileService, private router: Router, public alertController: AlertController, private translateService: TranslateService) { }
 
@@ -23,16 +23,16 @@ export class SearchHistoryPage implements OnInit, OnDestroy {
       this.language = language;
     });
     this.userProfileService.userProfile$.subscribe(userProfile => {
-      if (userProfile.history !== undefined) {
-        this.searchHistory = userProfile.history;
+      if (userProfile.favorites !== undefined) {
+        this.favorites = userProfile.favorites;
       }
     });
   }
 
   ionViewWillEnter() {
     this.userProfileService.userProfile$.subscribe(userProfile => {
-      if (userProfile.history !== undefined) {
-        this.searchHistory = userProfile.history;
+      if (userProfile.favorites !== undefined) {
+        this.favorites = userProfile.favorites;
       }
     });
   }
@@ -41,10 +41,10 @@ export class SearchHistoryPage implements OnInit, OnDestroy {
     this.router.navigate(['/tabs/medication-details', { medicationName: medicationName, medicationID: null }]);
   }
 
-  deleteEnteryFromHistory(medicationName: string) {
-    this.userProfileService.deleteEnteryFromSearchHistory(medicationName).then( res => {
-      console.log(medicationName, 'was removed');
-      delete this.searchHistory[this.searchHistory.indexOf(medicationName)];
+  deleteFromFavorites(medicationName: string) {
+    this.userProfileService.deleteFromFavorites(medicationName).then( res => {
+      console.log(medicationName, 'was removed from favs');
+      delete this.favorites[this.favorites.indexOf(medicationName)];
     }).catch( error => {
       console.log(error);
     });
@@ -52,20 +52,20 @@ export class SearchHistoryPage implements OnInit, OnDestroy {
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
-      header: this.translateService.instant('SEARCH_HISTORY.CONFIRMATION'),
-      message: this.translateService.instant('SEARCH_HISTORY.CONFIRMATION_MESSAGE'),
+      header: this.translateService.instant('FAVORITES.CONFIRMATION'),
+      message: this.translateService.instant('FAVORITES.CONFIRMATION_MESSAGE'),
       buttons: [
         {
-          text: this.translateService.instant('SEARCH_HISTORY.CANCEL'),
+          text: this.translateService.instant('FAVORITES.CANCEL'),
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: this.translateService.instant('SEARCH_HISTORY.YES'),
+          text: this.translateService.instant('FAVORITES.YES'),
           handler: () => {
-            this.clearSearchHistory();
+            this.clearFavorites();
           }
         }
       ]
@@ -74,17 +74,17 @@ export class SearchHistoryPage implements OnInit, OnDestroy {
     await alert.present();
   }
 
-  clearSearchHistory() {
-    this.userProfileService.clearSearchHistory().then( res => {
-      this.searchHistory = [];
-      console.log('history cleared');
+  clearFavorites() {
+    this.userProfileService.clearFavorites().then( res => {
+      this.favorites = [];
+      console.log('favs cleared');
     }).catch( error => {
       console.log(error);
     });
   }
 
   ngOnDestroy() {
-    this.searchHistory = [];
+    this.favorites = [];
   }
 
 }

@@ -1,0 +1,33 @@
+<ion-toolbar [ngClass]="{ 'rtl': language == 'ar' }">
+  <ion-buttons routerLink="/tabs/home" slot="start">
+    <ion-icon size="large" name="{{ language != 'ar' ? 'chevron-back-outline' : 'chevron-forward-outline'}}"></ion-icon>
+  </ion-buttons>
+  <h1 class="ion-text-center">{{ 'FAVORITES.FAVORITES' | translate}}</h1>
+  <ion-buttons *ngIf="favorites.length > 0" (click)="presentAlertConfirm()" slot="end">
+    <ion-icon size="large" name="trash-outline"></ion-icon>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let favorite of favorites">
+      <ion-item-sliding>
+        <ion-item-options (click)="deleteFromFavorites(favorite)" side="start">
+          <ion-item-option color="danger">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item lines="none">
+          <ion-card>
+            <ion-card-content (click)="searchForMedication(favorite)">
+              <ion-text>{{favorite}}</ion-text>
+              <!-- <ion-text *ngIf="language == 'ar'">تينورمين</ion-text> -->
+              <ion-icon [ngClass]="{ 'rtl': language == 'ar', 'ltr': language == 'en'}" size="large"
+                name="chevron-back-outline"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-row>
+  </ion-grid>
+</ion-content>
