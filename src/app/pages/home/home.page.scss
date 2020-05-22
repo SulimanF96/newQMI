@@ -12,6 +12,24 @@ ion-toolbar.rtl{
   letter-spacing: 0;
 }
 
+h1.page-title{
+  padding-left: 98px;
+}
+
+h1.page-title.rtl{
+  padding-right: 98px;
+}
+
+ion-buttons{
+  position: relative;
+  right: 20px;
+}
+
+ion-buttons.rtl{
+  right: unset;
+  left: 20px;
+}
+
 ion-grid {
   margin-top: 131px;
 }

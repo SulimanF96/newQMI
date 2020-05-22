@@ -35,7 +35,7 @@ export class HomePage implements OnInit {
       this.userProfile = userProfile;
     });
 
-    this.translationService.language$.subscribe( language => {
+    this.translationService.language$.subscribe(language => {
       this.language = language;
     });
   }

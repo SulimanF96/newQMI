@@ -9,6 +9,14 @@
 </ion-toolbar>
 
 <ion-content>
+
+  <!-- <ion-card *ngIf="favorites.length == 0">
+    <ion-card-content>
+      <ion-img src="../../../assets/icon/no_bookmark.svg"></ion-img>
+      <p>No favorites yet</p>
+    </ion-card-content>
+  </ion-card> -->
+
   <ion-grid>
     <ion-row *ngFor="let favorite of favorites">
       <ion-item-sliding>
