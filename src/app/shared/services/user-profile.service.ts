@@ -99,27 +99,27 @@ export class UserProfileService {
         if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
           if (userProfile.val().history.includes(search, 0)) {
             searchHistory = userProfile.val().history;
-            searchHistory.push(search);
+            searchHistory.splice(searchHistory.indexOf(search), 1);
           }
           newUserProfile = {
             email: userProfile.val().email,
             isAdmin: userProfile.val().isAdmin,
             photo: userProfile.val().photo,
             username: userProfile.val().username,
-            history: !userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
+            history: userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
             favorites: userProfile.val().favorites
           };
         } else if (userProfile.val().history !== undefined && userProfile.val().favorites === undefined) {
-          if (!userProfile.val().history.includes(search, 0)) {
+          if (userProfile.val().history.includes(search, 0)) {
             searchHistory = userProfile.val().history;
-            searchHistory.push(search);
+            searchHistory.splice(searchHistory.indexOf(search), 1);
           }
           newUserProfile = {
             email: userProfile.val().email,
             isAdmin: userProfile.val().isAdmin,
             photo: userProfile.val().photo,
             username: userProfile.val().username,
-            history: !userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
+            history: userProfile.val().history.includes(search, 0) ?  searchHistory : userProfile.val().history,
           };
         } else if (userProfile.val().history === undefined && userProfile.val().favorites !== undefined) {
           newUserProfile = {
@@ -127,7 +127,6 @@ export class UserProfileService {
             isAdmin: userProfile.val().isAdmin,
             photo: userProfile.val().photo,
             username: userProfile.val().username,
-            history: [search],
             favorites: userProfile.val().favorites
           };
         } else {
@@ -136,7 +135,6 @@ export class UserProfileService {
             isAdmin: userProfile.val().isAdmin,
             photo: userProfile.val().photo,
             username: userProfile.val().username,
-            history: [search]
           };
         }
       });

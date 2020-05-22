@@ -8,14 +8,23 @@
 <ion-content>
   <ion-grid>
     <ion-row *ngFor="let searchEntery of searchHistory">
-      <ion-card>
-        <ion-card-content (click)="searchForMedication(searchEntery)">
-          <ion-text>{{searchEntery}}</ion-text>
-          <!-- <ion-text *ngIf="language == 'ar'">تينورمين</ion-text> -->
-          <ion-icon [ngClass]="{ 'rtl': language == 'ar', 'ltr': language == 'en'}" size="large"
-            name="chevron-back-outline"></ion-icon>
-        </ion-card-content>
-      </ion-card>
+      <ion-item-sliding>
+        <ion-item-options (click)="deleteEnteryFromHistory(searchEntery)" side="start">
+          <ion-item-option color="danger">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item lines="none">
+          <ion-card>
+            <ion-card-content (click)="searchForMedication(searchEntery)">
+              <ion-text>{{searchEntery}}</ion-text>
+              <!-- <ion-text *ngIf="language == 'ar'">تينورمين</ion-text> -->
+              <ion-icon [ngClass]="{ 'rtl': language == 'ar', 'ltr': language == 'en'}" size="large"
+                name="chevron-back-outline"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+      </ion-item-sliding>
     </ion-row>
   </ion-grid>
 </ion-content>

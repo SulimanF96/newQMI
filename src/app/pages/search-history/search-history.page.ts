@@ -38,6 +38,15 @@ export class SearchHistoryPage implements OnInit, OnDestroy {
     this.router.navigate(['/tabs/medication-details', { medicationName: medicationName, medicationID: null }]);
   }
 
+  deleteEnteryFromHistory(medicationName: string) {
+    this.userProfileService.deleteEnteryFromSearchHistory(medicationName).then( res => {
+      console.log(medicationName, 'was removed');
+      delete this.searchHistory[this.searchHistory.indexOf(medicationName)];
+    }).catch( error => {
+      console.log(error);
+    });
+  }
+
   ngOnDestroy() {
     this.searchHistory = [];
   }
