@@ -37,6 +37,7 @@ export class AppComponent {
           this.userProfileService.getUserProfile(user.uid).then(userProfile => {
             userProfile.forEach((userProfile) => {
               this.userProfileService.userProfile$.next(userProfile.val());
+              this.userProfileService.userID$.next(user.uid);
             });
           }).catch(error => {
             console.log(error);

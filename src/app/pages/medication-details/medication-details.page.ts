@@ -25,6 +25,7 @@ export class MedicationDetailsPage implements OnInit {
   public language = 'en';
   private pdfObject = null;
   public isFavorite = false;
+  public isLoggedIn = false;
 
   constructor(private route: ActivatedRoute,
     private medicationService: MedicationService,
@@ -46,24 +47,34 @@ export class MedicationDetailsPage implements OnInit {
     });
     this.medicationID === 'null' ? this.serachForMedicationWithName(this.medicationName) : this.serachForMedicationWithID(this.medicationID);
     this.userProfileService.userProfile$.subscribe(userProfile => {
-      console.log('1')
+      console.log('1');
       if (userProfile.favorites !== undefined) {
         this.isFavorite = userProfile.favorites.includes(this.medicationName.toUpperCase());
         console.log('2');
         console.log(userProfile.favorites);
       }
     });
+    if (this.userProfileService.userID$.value != null) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 
   ionViewWillEnter() {
     this.userProfileService.userProfile$.subscribe(userProfile => {
-      console.log('1')
+      console.log('1');
       if (userProfile.favorites !== undefined) {
         this.isFavorite = userProfile.favorites.includes(this.medicationName.toUpperCase());
         console.log('2');
         console.log(userProfile.favorites);
       }
     });
+    if (this.userProfileService.userID$.value != null) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 
   serachForMedicationWithName(medicationName: string) {
@@ -74,7 +85,7 @@ export class MedicationDetailsPage implements OnInit {
             this.medicationDetails = medicationDetails.val();
           });
           this.dataStatus = 'found';
-          if (this.userProfileService.userID) {
+          if (this.userProfileService.userID$.getValue()) {
             this.addNewEnteryToSearchHistory(this.medicationDetails.name);
           }
         } else {
@@ -90,7 +101,7 @@ export class MedicationDetailsPage implements OnInit {
             this.medicationDetails = medicationDetails.val();
           });
           this.dataStatus = 'found';
-          if (this.userProfileService.userID) {
+          if (this.userProfileService.userID$.getValue()) {
             this.addNewEnteryToSearchHistory(this.medicationDetails.name);
           }
         } else {
@@ -189,7 +200,7 @@ export class MedicationDetailsPage implements OnInit {
 
   addToFavorites(medicationName: string) {
     console.log('3');
-    if (this.userProfileService.userID) {
+    if (this.userProfileService.userID$.value) {
       console.log('4')
       this.userProfileService.addToFavorites(medicationName).then(res => {
         console.log('it was added to favorites', res);
@@ -201,7 +212,7 @@ export class MedicationDetailsPage implements OnInit {
   }
 
   deleteFromFavorites(medicationName: string) {
-    if (this.userProfileService.userID) {
+    if (this.userProfileService.userID$.value) {
       this.userProfileService.deleteFromFavorites(medicationName).then(res => {
         console.log('it was deleted from favorites', res);
         this.isFavorite = false;

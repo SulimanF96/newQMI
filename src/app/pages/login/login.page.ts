@@ -63,8 +63,9 @@ export class LoginPage implements OnInit {
         console.log(userProfile.val());
         this.presentToast(userProfile.val().username);
         this.userProfileService.userProfile$.next(userProfile.val());
-        
+
       });
+      this.userProfileService.userID$.next(userID);
     }).catch(error => {
       console.log(error);
     });

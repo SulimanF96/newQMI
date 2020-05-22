@@ -61,6 +61,7 @@ export class SignupPage implements OnInit {
   createUserProfile(userID: string, email: string) {
     this.userProfileService.createUserProfile(userID, email).then(res => {
       console.log(res);
+      this.userProfileService.userID$.next(userID);
     }).catch(error => {
       console.log(error);
     });

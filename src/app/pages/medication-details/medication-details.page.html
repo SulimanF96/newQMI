@@ -11,7 +11,7 @@
 <ion-content>
 
   <ion-icon (click)="isFavorite ? deleteFromFavorites(medicationDetails.name) : addToFavorites(medicationDetails.name)"
-    *ngIf="dataStatus == 'found'" class="bookmark-icon" [ngClass]="{'rtl': language == 'ar'}" size="large"
+    *ngIf="dataStatus == 'found' && isLoggedIn" class="bookmark-icon" [ngClass]="{'rtl': language == 'ar'}" size="large"
     name="{{isFavorite ? 'bookmark' : 'bookmark-outline'}}"></ion-icon>
 
 

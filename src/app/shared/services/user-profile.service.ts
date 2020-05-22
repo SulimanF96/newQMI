@@ -10,13 +10,10 @@ export class UserProfileService {
 
   private userProfilesRef: AngularFireList<any>;
   public userProfile$ = new BehaviorSubject(null);
-  userID: string;
+  public userID$ = new BehaviorSubject(null);
 
   constructor(private angularFireDatabase: AngularFireDatabase, private angularFireAuth: AngularFireAuth) {
     this.userProfilesRef = this.angularFireDatabase.list('/user-profiles');
-    this.angularFireAuth.authState.subscribe(authState => {
-      this.userID = authState.uid;
-    });
   }
 
   getUserProfile(userID: string) {
@@ -38,7 +35,7 @@ export class UserProfileService {
   async addNewEnteryToSearchHistory(search: string) {
     let newUserProfile = {};
     let searchHistory = [];
-    await this.getUserProfile(this.userID).then(userProfile => {
+    await this.getUserProfile(this.userID$.value).then(userProfile => {
       userProfile.forEach((userProfile) => {
         if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
           if (!userProfile.val().history.includes(search, 0)) {
@@ -88,13 +85,13 @@ export class UserProfileService {
       console.log(error);
     });
     this.userProfile$.next(newUserProfile);
-    return this.userProfilesRef.update(this.userID, newUserProfile);
+    return this.userProfilesRef.update(this.userID$.value, newUserProfile);
   }
 
   async deleteEnteryFromSearchHistory(search: string) {
     let newUserProfile = {};
     let searchHistory = [];
-    await this.getUserProfile(this.userID).then(userProfile => {
+    await this.getUserProfile(this.userID$.value).then(userProfile => {
       userProfile.forEach((userProfile) => {
         if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
           if (userProfile.val().history.includes(search, 0)) {
@@ -142,13 +139,13 @@ export class UserProfileService {
       console.log(error);
     });
     this.userProfile$.next(newUserProfile);
-    return this.userProfilesRef.update(this.userID, newUserProfile);
+    return this.userProfilesRef.update(this.userID$.value, newUserProfile);
   }
 
   async clearSearchHistory() {
     let newUserProfile = {};
     let searchHistory = [];
-    await this.getUserProfile(this.userID).then(userProfile => {
+    await this.getUserProfile(this.userID$.value).then(userProfile => {
       userProfile.forEach((userProfile) => {
         if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
           newUserProfile = {
@@ -188,13 +185,13 @@ export class UserProfileService {
       console.log(error);
     });
     this.userProfile$.next(newUserProfile);
-    return this.userProfilesRef.update(this.userID, newUserProfile);
+    return this.userProfilesRef.update(this.userID$.value, newUserProfile);
   }
 
   async addToFavorites(search: string) {
     let newUserProfile = {};
     let favorites = [];
-    await this.getUserProfile(this.userID).then(userProfile => {
+    await this.getUserProfile(this.userID$.value).then(userProfile => {
       userProfile.forEach((userProfile) => {
         if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
           if (!userProfile.val().favorites.includes(search, 0)) {
@@ -244,13 +241,13 @@ export class UserProfileService {
       console.log(error);
     });
     this.userProfile$.next(newUserProfile);
-    return this.userProfilesRef.update(this.userID, newUserProfile);
+    return this.userProfilesRef.update(this.userID$.value, newUserProfile);
   }
 
   async deleteFromFavorites(search: string) {
     let newUserProfile = {};
     let favorites = [];
-    await this.getUserProfile(this.userID).then(userProfile => {
+    await this.getUserProfile(this.userID$.value).then(userProfile => {
       userProfile.forEach((userProfile) => {
         if (userProfile.val().history !== undefined && userProfile.val().favorites !== undefined) {
           if (userProfile.val().favorites.includes(search, 0)) {
@@ -298,7 +295,7 @@ export class UserProfileService {
       console.log(error);
     });
     this.userProfile$.next(newUserProfile);
-    return this.userProfilesRef.update(this.userID, newUserProfile);
+    return this.userProfilesRef.update(this.userID$.value, newUserProfile);
   }
 
 }
