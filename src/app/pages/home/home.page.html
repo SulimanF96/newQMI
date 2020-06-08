@@ -2,9 +2,9 @@
   <h1 [ngClass]="{ 'rtl': language == 'ar', 'page-title': userIsLoggedIn}" class="ion-text-center">
     {{'HOME.HOME' | translate}}</h1>
   <ion-buttons *ngIf="userIsLoggedIn" [ngClass]="{ 'rtl': language == 'ar'}" slot="end">
-    <ion-chip>
+    <ion-chip class="profile-dark">
       <ion-avatar>
-        <img src="../../../assets/icon//profile.png">
+        <img src="assets/icon/profile.png">
       </ion-avatar>
       <ion-label>{{userProfile?.username}}</ion-label>
     </ion-chip>

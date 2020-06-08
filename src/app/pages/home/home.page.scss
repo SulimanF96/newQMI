@@ -30,6 +30,14 @@ ion-buttons.rtl{
   left: 20px;
 }
 
+ion-chip{
+  background: var(--ion-color-primary-tint);
+}
+
+ion-label{
+  color: white;
+}
+
 ion-grid {
   margin-top: 131px;
 }

@@ -12,6 +12,10 @@ const routes: Routes = [
     path: 'user-guide',
     loadChildren: () => import('./pages/user-guide/user-guide.module').then(m => m.UserGuidePageModule)
   },
+  {
+    path: 'splash',
+    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
+  },
 ];
 @NgModule({
   imports: [

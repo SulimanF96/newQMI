@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserProfileService } from './shared/services/user-profile.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
@@ -19,7 +20,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     private angularFireAuth: AngularFireAuth,
     private userProfileService: UserProfileService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -32,6 +34,7 @@ export class AppComponent {
       // this.statusBar.styleLightContent();
       this.splashScreen.hide();
       this.translate.setDefaultLang('en');
+      this.router.navigateByUrl('/splash');
       this.angularFireAuth.authState.subscribe(user => {
         if (user) {
           this.userProfileService.getUserProfile(user.uid).then(userProfile => {
